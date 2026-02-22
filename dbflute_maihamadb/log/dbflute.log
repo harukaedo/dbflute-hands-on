@@ -1,0 +1,1044 @@
+2026-02-22 14:27:47,958 [main] INFO  (DfReplaceSchemaTask#begin():94) - +------------------------------------------+
+2026-02-22 14:27:47,959 [main] INFO  (DfReplaceSchemaTask#begin():95) - |                                          |
+2026-02-22 14:27:47,959 [main] INFO  (DfReplaceSchemaTask#begin():96) - |              ReplaceSchema               |
+2026-02-22 14:27:47,961 [main] INFO  (DfReplaceSchemaTask#begin():104) - |                                          |
+2026-02-22 14:27:47,961 [main] INFO  (DfReplaceSchemaTask#begin():105) - +------------------------------------------+
+2026-02-22 14:27:47,962 [main] INFO  (DfReplaceSchemaTask#waitBeforeReps():423) - ...Waiting for your GO SIGN from stdin before ReplaceSchema:
+2026-02-22 14:28:03,535 [main] INFO  (DfDataSourceHandler#prepare():78) - ...Preparing data source:
+2026-02-22 14:28:03,536 [main] INFO  (DfDataSourceHandler#prepare():79) -   driver = com.mysql.jdbc.Driver
+2026-02-22 14:28:03,536 [main] INFO  (DfDataSourceHandler#prepare():80) -   url    = jdbc:mysql://localhost:43376/maihamadb?allowPublicKeyRetrieval=true&sslMode=DISABLED
+2026-02-22 14:28:03,536 [main] INFO  (DfDataSourceHandler#prepare():81) -   user   = maihamadb
+2026-02-22 14:28:03,543 [main] INFO  (DfDataSourceHandler#createConnection():166) - ...Connecting to database by data source:
+2026-02-22 14:28:03,906 [main] INFO  (DfReplaceSchemaTask#setupLazyConnection():146) - ...Being a lazy connection: Failed to connect: url=jdbc:mysql://localhost:4...
+2026-02-22 14:28:03,911 [main] ERROR (DfDBFluteTaskUtil#logException():150) - Look! Read the message below.
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+Failed to execute DBFlute Task 'ReplaceSchema'.
+
+[Advice]
+Check the exception messages and the stack traces.
+* * * * * * * * * */
+org.dbflute.infra.reps.exception.DfReplaceSchemaExecuteNotAllowedException: Look! Read the message below.
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+Your ReplaceSchema execution was not allowed.
+
+[Advice]
+Not found SQL files for ReplaceSchema,
+so your execution might be mistake...?
+
+[SQL Root Directory]
+playsql
+* * * * * * * * * */
+	at org.dbflute.infra.reps.DfRepsExecuteLimitter.throwReplaceSchemaExecuteNotAllowedException(DfRepsExecuteLimitter.java:76)
+	at org.dbflute.infra.reps.DfRepsExecuteLimitter.checkExecutableOrNot(DfRepsExecuteLimitter.java:60)
+	at org.dbflute.logic.replaceschema.process.DfCreateSchemaProcess.checkBeforeInitialize(DfCreateSchemaProcess.java:167)
+	at org.dbflute.logic.replaceschema.process.DfCreateSchemaProcess.execute(DfCreateSchemaProcess.java:151)
+	at org.dbflute.task.DfReplaceSchemaTask.createSchema(DfReplaceSchemaTask.java:309)
+	at org.dbflute.task.DfReplaceSchemaTask.executeCoreProcess(DfReplaceSchemaTask.java:254)
+	at org.dbflute.task.DfReplaceSchemaTask.processReplaceSchema(DfReplaceSchemaTask.java:240)
+	at org.dbflute.task.DfReplaceSchemaTask.doExecute(DfReplaceSchemaTask.java:160)
+	at org.dbflute.task.bs.DfAbstractTexenTask$1.callActualExecute(DfAbstractTexenTask.java:129)
+	at org.dbflute.task.bs.assistant.DfTaskBasicController.doExecute(DfTaskBasicController.java:192)
+	at org.dbflute.task.bs.assistant.DfTaskBasicController.execute(DfTaskBasicController.java:78)
+	at org.dbflute.task.bs.DfAbstractTexenTask.execute(DfAbstractTexenTask.java:151)
+	at org.apache.tools.ant.UnknownElement.execute(UnknownElement.java:288)
+	at jdk.internal.reflect.GeneratedMethodAccessor3.invoke(Unknown Source)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at org.apache.tools.ant.dispatch.DispatchUtils.execute(DispatchUtils.java:105)
+	at org.apache.tools.ant.Task.perform(Task.java:348)
+	at org.apache.tools.ant.Target.execute(Target.java:357)
+	at org.apache.tools.ant.Target.performTasks(Target.java:385)
+	at org.apache.tools.ant.Project.executeSortedTargets(Project.java:1329)
+	at org.apache.tools.ant.Project.executeTarget(Project.java:1298)
+	at org.apache.tools.ant.helper.DefaultExecutor.executeTargets(DefaultExecutor.java:41)
+	at org.apache.tools.ant.Project.executeTargets(Project.java:1181)
+	at org.apache.tools.ant.Main.runBuild(Main.java:698)
+	at org.apache.tools.ant.Main.startAnt(Main.java:199)
+	at org.apache.tools.ant.launch.Launcher.run(Launcher.java:257)
+	at org.apache.tools.ant.launch.Launcher.main(Launcher.java:104)
+2026-02-22 14:28:03,918 [main] INFO  (DfDBFluteTaskUtil#logFinalMessage():139) - 
+_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/
+[Final Message]: 00m15s963ms *Abort
+
+  DBFLUTE_CLIENT: {maihamadb}
+    database  = mysql
+    language  = java
+    container = lasta_di
+    package   = org.docksidestage.handson.dbflute
+
+  DBFLUTE_ENVIRONMENT_TYPE: {}
+    driver = com.mysql.jdbc.Driver
+    url    = jdbc:mysql://localhost:43376/maihamadb?allowPublicKeyRetrieval=true&sslMode=DISABLED
+    schema = {maihamadb.$$NoNameSchema$$ as main}
+    user   = maihamadb
+    props  = {}
+    additionalSchema = 
+    repsEnvType      = ut
+    refreshProject   = $$AutoDetect$$
+
+
+_/_/_/_/_/_/_/_/_/_/ {ReplaceSchema}
+2026-02-22 14:28:12,326 [main] INFO  (DfReplaceSchemaTask#begin():94) - +------------------------------------------+
+2026-02-22 14:28:12,327 [main] INFO  (DfReplaceSchemaTask#begin():95) - |                                          |
+2026-02-22 14:28:12,327 [main] INFO  (DfReplaceSchemaTask#begin():96) - |              ReplaceSchema               |
+2026-02-22 14:28:12,329 [main] INFO  (DfReplaceSchemaTask#begin():104) - |                                          |
+2026-02-22 14:28:12,329 [main] INFO  (DfReplaceSchemaTask#begin():105) - +------------------------------------------+
+2026-02-22 14:28:12,329 [main] INFO  (DfReplaceSchemaTask#waitBeforeReps():423) - ...Waiting for your GO SIGN from stdin before ReplaceSchema:
+2026-02-22 14:28:12,911 [main] INFO  (DfReplaceSchemaTask#begin():110) - *The execution of ReplaceSchema was cancelled.
+2026-02-22 14:28:12,922 [main] INFO  (DfDBFluteTaskUtil#logFinalMessage():139) - 
+_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/
+[Final Message]: 00m00s594ms *Abort
+
+  DBFLUTE_CLIENT: {maihamadb}
+    database  = mysql
+    language  = java
+    container = lasta_di
+    package   = org.docksidestage.handson.dbflute
+
+  DBFLUTE_ENVIRONMENT_TYPE: {}
+    additionalSchema = 
+    repsEnvType      = ut
+    refreshProject   = $$AutoDetect$$
+
+    * * * * * * *
+    * Cancelled *
+    * * * * * * *
+_/_/_/_/_/_/_/_/_/_/ {ReplaceSchema}
+2026-02-22 14:28:19,675 [main] INFO  (DfFreeGenTask#begin():75) - +------------------------------------------+
+2026-02-22 14:28:19,675 [main] INFO  (DfFreeGenTask#begin():76) - |                                          |
+2026-02-22 14:28:19,676 [main] INFO  (DfFreeGenTask#begin():77) - |                 Free Gen                 |
+2026-02-22 14:28:19,676 [main] INFO  (DfFreeGenTask#begin():78) - |                                          |
+2026-02-22 14:28:19,676 [main] INFO  (DfFreeGenTask#begin():79) - +------------------------------------------+
+2026-02-22 14:28:19,690 [main] INFO  (DfDataSourceHandler#prepare():78) - ...Preparing data source:
+2026-02-22 14:28:19,691 [main] INFO  (DfDataSourceHandler#prepare():79) -   driver = com.mysql.jdbc.Driver
+2026-02-22 14:28:19,691 [main] INFO  (DfDataSourceHandler#prepare():80) -   url    = jdbc:mysql://localhost:43376/maihamadb?allowPublicKeyRetrieval=true&sslMode=DISABLED
+2026-02-22 14:28:19,691 [main] INFO  (DfDataSourceHandler#prepare():81) -   user   = maihamadb
+2026-02-22 14:28:19,697 [main] INFO  (DfFreeGenTask#processApplicationFreeGen():211) - *No freeGen space so skip application freeGen: path=./freegen
+2026-02-22 14:28:19,701 [main] INFO  (DfRefreshResourceProcess#show():295) - /===========================================================================
+2026-02-22 14:28:19,701 [main] INFO  (DfRefreshResourceProcess#show():295) - ...Refreshing [dbflute-hands-on] by http://localhost:8386/
+2026-02-22 14:28:19,716 [main] INFO  (DfRefreshResourceProcess#show():295) - ...Retrying refreshing by default secondary URL http://localhost:8387/
+2026-02-22 14:28:19,716 [main] INFO  (DfRefreshResourceProcess#show():295) - Failed to refresh the resources (continued): url=http://localhost:8386/, cause=ConnectException(Connection refused)
+2026-02-22 14:28:19,717 [main] INFO  (DfRefreshResourceProcess#show():295) - ==========/
+2026-02-22 14:28:19,719 [main] INFO  (DfDBFluteTaskUtil#logFinalMessage():139) - 
+_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/
+[Final Message]: 00m00s043ms
+
+  DBFLUTE_CLIENT: {maihamadb}
+    database  = mysql
+    language  = java
+    container = lasta_di
+    package   = org.docksidestage.handson.dbflute
+
+  DBFLUTE_ENVIRONMENT_TYPE: {}
+    driver = com.mysql.jdbc.Driver
+    url    = jdbc:mysql://localhost:43376/maihamadb?allowPublicKeyRetrieval=true&sslMode=DISABLED
+    schema = {maihamadb.$$NoNameSchema$$ as main}
+    user   = maihamadb
+    props  = {}
+    additionalSchema = 
+    repsEnvType      = ut
+    refreshProject   = $$AutoDetect$$
+_/_/_/_/_/_/_/_/_/_/ {df-freegen}
+2026-02-22 14:28:28,107 [main] INFO  (TorqueJDBCTransformTask#begin():104) - +------------------------------------------+
+2026-02-22 14:28:28,108 [main] INFO  (TorqueJDBCTransformTask#begin():105) - |                                          |
+2026-02-22 14:28:28,108 [main] INFO  (TorqueJDBCTransformTask#begin():106) - |                   JDBC                   |
+2026-02-22 14:28:28,109 [main] INFO  (TorqueJDBCTransformTask#begin():107) - |                                          |
+2026-02-22 14:28:28,109 [main] INFO  (TorqueJDBCTransformTask#begin():108) - +------------------------------------------+
+2026-02-22 14:28:28,119 [main] INFO  (DfDataSourceHandler#prepare():78) - ...Preparing data source:
+2026-02-22 14:28:28,119 [main] INFO  (DfDataSourceHandler#prepare():79) -   driver = com.mysql.jdbc.Driver
+2026-02-22 14:28:28,119 [main] INFO  (DfDataSourceHandler#prepare():80) -   url    = jdbc:mysql://localhost:43376/maihamadb?allowPublicKeyRetrieval=true&sslMode=DISABLED
+2026-02-22 14:28:28,120 [main] INFO  (DfDataSourceHandler#prepare():81) -   user   = maihamadb
+2026-02-22 14:28:28,134 [main] INFO  (DfSchemaXmlSerializer#serialize():305) - 
+2026-02-22 14:28:28,135 [main] INFO  (DfSchemaXmlSerializer#serialize():306) - ...Starting to process JDBC to SchemaXML
+2026-02-22 14:28:28,135 [main] INFO  (DfSchemaXmlSerializer#doLoadPreviousSchema():1559) - ...Loading previous schema (schema diff process)
+2026-02-22 14:28:28,139 [main] INFO  (DfSchemaXmlSerializer#doLoadPreviousSchema():1562) -  -> no previous (first time)
+2026-02-22 14:28:28,146 [main] INFO  (DfSchemaXmlSerializer#generateXML():379) - ...Getting DB connection
+2026-02-22 14:28:28,149 [main] INFO  (DfDataSourceHandler#createConnection():166) - ...Connecting to database by data source:
+2026-02-22 14:28:28,408 [main] ERROR (DfDBFluteTaskUtil#logException():150) - Look! Read the message below.
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+Failed to execute DBFlute Task 'JDBC'.
+
+[Advice]
+Check the exception messages and the stack traces.
+* * * * * * * * * */
+java.lang.IllegalStateException: SQL exception when serializing SchemaXml: ./schema/project-schema-maihamadb.xml
+	at org.dbflute.logic.jdbc.schemaxml.DfSchemaXmlSerializer.serialize(DfSchemaXmlSerializer.java:342)
+	at org.apache.torque.task.TorqueJDBCTransformTask.doExecute(TorqueJDBCTransformTask.java:127)
+	at org.dbflute.task.bs.DfAbstractTask$1.callActualExecute(DfAbstractTask.java:113)
+	at org.dbflute.task.bs.assistant.DfTaskBasicController.doExecute(DfTaskBasicController.java:192)
+	at org.dbflute.task.bs.assistant.DfTaskBasicController.execute(DfTaskBasicController.java:78)
+	at org.dbflute.task.bs.DfAbstractTask.execute(DfAbstractTask.java:135)
+	at org.apache.tools.ant.UnknownElement.execute(UnknownElement.java:288)
+	at jdk.internal.reflect.GeneratedMethodAccessor3.invoke(Unknown Source)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at org.apache.tools.ant.dispatch.DispatchUtils.execute(DispatchUtils.java:105)
+	at org.apache.tools.ant.Task.perform(Task.java:348)
+	at org.apache.tools.ant.Target.execute(Target.java:357)
+	at org.apache.tools.ant.Target.performTasks(Target.java:385)
+	at org.apache.tools.ant.Project.executeSortedTargets(Project.java:1329)
+	at org.apache.tools.ant.helper.SingleCheckExecutor.executeTargets(SingleCheckExecutor.java:38)
+	at org.apache.tools.ant.Project.executeTargets(Project.java:1181)
+	at org.apache.tools.ant.taskdefs.Ant.execute(Ant.java:416)
+	at org.apache.tools.ant.taskdefs.CallTarget.execute(CallTarget.java:105)
+	at org.apache.tools.ant.UnknownElement.execute(UnknownElement.java:288)
+	at jdk.internal.reflect.GeneratedMethodAccessor3.invoke(Unknown Source)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at org.apache.tools.ant.dispatch.DispatchUtils.execute(DispatchUtils.java:105)
+	at org.apache.tools.ant.Task.perform(Task.java:348)
+	at org.apache.tools.ant.Target.execute(Target.java:357)
+	at org.apache.tools.ant.Target.performTasks(Target.java:385)
+	at org.apache.tools.ant.Project.executeSortedTargets(Project.java:1329)
+	at org.apache.tools.ant.Project.executeTarget(Project.java:1298)
+	at org.apache.tools.ant.helper.DefaultExecutor.executeTargets(DefaultExecutor.java:41)
+	at org.apache.tools.ant.Project.executeTargets(Project.java:1181)
+	at org.apache.tools.ant.Main.runBuild(Main.java:698)
+	at org.apache.tools.ant.Main.startAnt(Main.java:199)
+	at org.apache.tools.ant.launch.Launcher.run(Launcher.java:257)
+	at org.apache.tools.ant.launch.Launcher.main(Launcher.java:104)
+Caused by: org.dbflute.exception.DfJDBCException: JDBC said...
+/- - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+[SQLException]
+org.dbflute.exception.DfJDBCException
+Failed to connect: url=jdbc:mysql://localhost:43376/maihamadb?allowPublicKeyRetrieval=true&sslMode=DISABLED user=maihamadb
+
+[NextException]
+java.sql.SQLException
+Access denied for user 'maihamadb'@'localhost' (using password: YES)
+- - - - - - - - - -/
+	at org.dbflute.exception.DfJDBCException.voice(DfJDBCException.java:40)
+	... 35 more
+2026-02-22 14:28:28,417 [main] INFO  (DfDBFluteTaskUtil#logFinalMessage():139) - 
+_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/
+[Final Message]: 00m00s309ms *Abort
+
+  DBFLUTE_CLIENT: {maihamadb}
+    database  = mysql
+    language  = java
+    container = lasta_di
+    package   = org.docksidestage.handson.dbflute
+
+  DBFLUTE_ENVIRONMENT_TYPE: {}
+    driver = com.mysql.jdbc.Driver
+    url    = jdbc:mysql://localhost:43376/maihamadb?allowPublicKeyRetrieval=true&sslMode=DISABLED
+    schema = {maihamadb.$$NoNameSchema$$ as main}
+    user   = maihamadb
+    props  = {}
+    additionalSchema = 
+    repsEnvType      = ut
+    refreshProject   = $$AutoDetect$$
+_/_/_/_/_/_/_/_/_/_/ {JDBC}
+2026-02-22 14:34:38,281 [main] INFO  (DfReplaceSchemaTask#begin():94) - +------------------------------------------+
+2026-02-22 14:34:38,282 [main] INFO  (DfReplaceSchemaTask#begin():95) - |                                          |
+2026-02-22 14:34:38,282 [main] INFO  (DfReplaceSchemaTask#begin():96) - |              ReplaceSchema               |
+2026-02-22 14:34:38,283 [main] INFO  (DfReplaceSchemaTask#begin():104) - |                                          |
+2026-02-22 14:34:38,283 [main] INFO  (DfReplaceSchemaTask#begin():105) - +------------------------------------------+
+2026-02-22 14:34:38,284 [main] INFO  (DfReplaceSchemaTask#waitBeforeReps():423) - ...Waiting for your GO SIGN from stdin before ReplaceSchema:
+2026-02-22 14:34:38,294 [main] INFO  (DfDataSourceHandler#prepare():78) - ...Preparing data source:
+2026-02-22 14:34:38,294 [main] INFO  (DfDataSourceHandler#prepare():79) -   driver = com.mysql.jdbc.Driver
+2026-02-22 14:34:38,294 [main] INFO  (DfDataSourceHandler#prepare():80) -   url    = jdbc:mysql://localhost:43376/maihamadb?allowPublicKeyRetrieval=true&sslMode=DISABLED
+2026-02-22 14:34:38,294 [main] INFO  (DfDataSourceHandler#prepare():81) -   user   = maihamadb
+2026-02-22 14:34:38,298 [main] INFO  (DfDataSourceHandler#createConnection():166) - ...Connecting to database by data source:
+2026-02-22 14:34:38,562 [main] INFO  (DfReplaceSchemaTask#setupLazyConnection():146) - ...Being a lazy connection: Failed to connect: url=jdbc:mysql://localhost:4...
+2026-02-22 14:34:38,567 [main] INFO  (DfCreateSchemaProcess#initializeSchemaMainDrop():253) - 
+2026-02-22 14:34:38,567 [main] INFO  (DfCreateSchemaProcess#initializeSchemaMainDrop():254) - * * * * * * * * * * *
+2026-02-22 14:34:38,568 [main] INFO  (DfCreateSchemaProcess#initializeSchemaMainDrop():255) - *                   *
+2026-02-22 14:34:38,568 [main] INFO  (DfCreateSchemaProcess#initializeSchemaMainDrop():256) - * Initialize Schema *
+2026-02-22 14:34:38,568 [main] INFO  (DfCreateSchemaProcess#initializeSchemaMainDrop():257) - *                   *
+2026-02-22 14:34:38,568 [main] INFO  (DfCreateSchemaProcess#initializeSchemaMainDrop():258) - * * * * * * * * * * *
+2026-02-22 14:34:38,568 [main] INFO  (DfCreateSchemaProcess#initializeSchemaMainDrop():260) - *Passed because it's a lazy connection
+2026-02-22 14:34:38,568 [main] INFO  (DfCreateSchemaProcess#createSchema():293) - 
+2026-02-22 14:34:38,568 [main] INFO  (DfCreateSchemaProcess#createSchema():294) - * * * * * * * * *
+2026-02-22 14:34:38,568 [main] INFO  (DfCreateSchemaProcess#createSchema():295) - *               *
+2026-02-22 14:34:38,568 [main] INFO  (DfCreateSchemaProcess#createSchema():296) - * Create Schema *
+2026-02-22 14:34:38,569 [main] INFO  (DfCreateSchemaProcess#createSchema():297) - *               *
+2026-02-22 14:34:38,569 [main] INFO  (DfCreateSchemaProcess#createSchema():298) - * * * * * * * * *
+2026-02-22 14:34:38,570 [main] INFO  (DfSqlFileFireMan#fire():68) - ...Firing: replace-schema-00-system.sql
+2026-02-22 14:34:38,571 [main] INFO  (DfSqlFileRunnerBase#traceSql():168) - 
+-- #df:changeUser(system)#
+-- #df:checkUser(mainSchema)#
+create database maihamadb
+2026-02-22 14:34:38,571 [main] INFO  (DfCreateSchemaProcess$1#dispatch():325) - ...Creating a connection to system
+2026-02-22 14:34:38,571 [main] INFO  (DfReplaceSchemaProperties#createAdditionalUserConnection():539) - ...Creating a connection for additional user: root
+2026-02-22 14:34:38,643 [main] INFO  (DfSqlFileRunnerBase#traceSql():168) - 
+-- #df:reviveUser()#
+-- #df:checkUser(mainUser, grant)#
+create user maihamadb@localhost identified by 'maihamadb'
+2026-02-22 14:34:38,657 [main] INFO  (DfSqlFileRunnerBase#traceSql():168) - 
+-- #df:reviveUser()#
+-- #df:checkUser(mainUser, grant)#
+grant all privileges on maihamadb.* to maihamadb@localhost
+2026-02-22 14:34:38,658 [main] INFO  (DfSqlFileRunnerBase#traceSql():168) - flush privileges
+2026-02-22 14:34:38,661 [main] INFO  (DfSqlFileRunnerBase#traceResult():172) -  -> success=4 failure=0
+2026-02-22 14:34:38,661 [main] INFO  (DfSqlFileFireMan#fire():68) - ...Firing: replace-schema-10-basic.sql
+2026-02-22 14:34:38,661 [main] INFO  (DfCreateSchemaProcess$DfSqlFileRunnerExecuteCreateSchema#restoreCurrentUser():411) - ...Coming back to the main user from the user 'system'
+2026-02-22 14:34:38,666 [main] INFO  (DfSqlFileRunnerBase#traceSql():168) - 
+create table `MEMBER`(
+    MEMBER_ID INTEGER AUTO_INCREMENT NOT NULL COMMENT '会員ID: 会員を識別するID。連番として基本的に自動採番される。
+（会員IDだけに限らず）採番方法はDBMSによって変わる。',
+    MEMBER_NAME VARCHAR(160) NOT NULL COMMENT '会員名称: 会員のフルネームの名称。',
+    MEMBER_ACCOUNT VARCHAR(50) NOT NULL COMMENT '会員アカウント: 会員がログイン時に利用するアカウントNO。',
+    MEMBER_STATUS_CODE CHAR(3) NOT NULL COMMENT '会員ステータスコード',
+    FORMALIZED_DATETIME DATETIME COMMENT '正式会員日時: 会員が正式に確定した日時。一度確定したら更新されない。
+仮会員のときはnull。',
+    BIRTHDATE DATE COMMENT '生年月日: 必須項目ではないので、このデータがない会員もいる。',
+    REGISTER_DATETIME DATETIME NOT NULL COMMENT '登録日時: レコードが登録された日時。共通カラムの一つ。',
+    REGISTER_USER VARCHAR(200) NOT NULL COMMENT '登録ユーザ: レコードを登録したユーザ。共通カラムの一つ。',
+    UPDATE_DATETIME DATETIME NOT NULL COMMENT '更新日時: レコードが（最後に）更新された日時。共通カラムの一つ。',
+    UPDATE_USER VARCHAR(200) NOT NULL COMMENT '更新ユーザ: レコードを更新したユーザ。',
+    VERSION_NO BIGINT NOT NULL COMMENT 'バージョンNO: レコードのバージョンを示すNO。
+更新回数と等しく、主に排他制御のために利用される。',
+    PRIMARY KEY (MEMBER_ID),
+    UNIQUE (MEMBER_ACCOUNT)
+) COMMENT='会員: 会員登録時にデータが登録される。
+基本的に物理削除はなく、退会したらステータスが退会会員になる。'
+2026-02-22 14:34:38,671 [main] INFO  (DfCreateSchemaProcess$DfSqlFileRunnerExecuteCreateSchema#lazyConnectIfNeeds():496) - ...Connecting by main user lazily
+2026-02-22 14:34:38,671 [main] INFO  (DfDataSourceHandler#prepare():78) - ...Preparing data source:
+2026-02-22 14:34:38,671 [main] INFO  (DfDataSourceHandler#prepare():79) -   driver = com.mysql.jdbc.Driver
+2026-02-22 14:34:38,671 [main] INFO  (DfDataSourceHandler#prepare():80) -   url    = jdbc:mysql://localhost:43376/maihamadb?allowPublicKeyRetrieval=true&sslMode=DISABLED
+2026-02-22 14:34:38,671 [main] INFO  (DfDataSourceHandler#prepare():81) -   user   = maihamadb
+2026-02-22 14:34:38,671 [main] INFO  (DfDataSourceHandler#createConnection():166) - ...Connecting to database by data source:
+2026-02-22 14:34:38,686 [main] INFO  (DfDataSourceHandler#setupConnectionMetaInfo():233) -   product = MySQL 8.0.45
+2026-02-22 14:34:38,687 [main] INFO  (DfDataSourceHandler#setupConnectionMetaInfo():234) -   driver  = MySQL Connector Java mysql-connector-java-5.1.49 ( Revision: ad86f36e100e104cd926c6b81c8cab9565750116 ) for JDBC 4.0
+2026-02-22 14:34:38,699 [main] INFO  (DfSqlFileRunnerBase#traceSql():168) - 
+create table MEMBER_ADDRESS(
+    MEMBER_ADDRESS_ID INTEGER AUTO_INCREMENT NOT NULL COMMENT '会員住所ID: 会員住所を識別するID。
+履歴分も含むテーブルなので、これ自体はFKではない。',
+    MEMBER_ID INTEGER NOT NULL COMMENT '会員ID: 会員を参照するID。
+履歴分を含むため、これだけではユニークにはならない。',
+    VALID_BEGIN_DATE DATE NOT NULL COMMENT '有効開始日: 一つの有効期間の開始を示す日付。
+前の有効終了日の次の日の値が格納される。',
+    VALID_END_DATE DATE NOT NULL COMMENT '有効終了日: 有効期間の終了日。
+次の有効開始日の一日前の値が格納される。
+ただし、次の有効期間がない場合は 9999/12/31 となる。',
+    ADDRESS VARCHAR(200) NOT NULL COMMENT '住所: まるごと住所',
+    REGION_ID INTEGER NOT NULL COMMENT '地域ID: 地域を参照するID。
+ここでは特に住所の内容と連動しているわけではない。',
+    REGISTER_DATETIME DATETIME NOT NULL,
+    REGISTER_USER VARCHAR(200) NOT NULL,
+    UPDATE_DATETIME DATETIME NOT NULL,
+    UPDATE_USER VARCHAR(200) NOT NULL,
+    VERSION_NO BIGINT NOT NULL,
+    PRIMARY KEY (MEMBER_ADDRESS_ID),
+    UNIQUE (MEMBER_ID, VALID_BEGIN_DATE)
+) COMMENT='会員住所情報: 会員の住所に関する情報。
+同時に有効期間ごとに履歴管理されている。'
+2026-02-22 14:34:38,705 [main] INFO  (DfSqlFileRunnerBase#traceSql():168) - 
+create table MEMBER_LOGIN(
+    MEMBER_LOGIN_ID BIGINT AUTO_INCREMENT NOT NULL COMMENT '会員ログインID',
+    MEMBER_ID INTEGER NOT NULL COMMENT '会員ID',
+    LOGIN_DATETIME DATETIME NOT NULL COMMENT 'ログイン日時: ログインした瞬間の日時。',
+    MOBILE_LOGIN_FLG INTEGER NOT NULL COMMENT 'モバイルログインフラグ: モバイル機器からのログインか否か。',
+    LOGIN_MEMBER_STATUS_CODE CHAR(3) NOT NULL COMMENT 'ログイン会員ステータスコード: ログイン時の会員ステータス',
+    PRIMARY KEY (MEMBER_LOGIN_ID),
+    UNIQUE (MEMBER_ID, LOGIN_DATETIME)
+) COMMENT='会員ログイン情報: ログインするたびに登録されるログイン履歴。'
+2026-02-22 14:34:38,710 [main] INFO  (DfSqlFileRunnerBase#traceSql():168) - 
+create table MEMBER_SECURITY(
+    MEMBER_ID INTEGER NOT NULL COMMENT '会員ID: そのまま one-to-one を構成するためのFKとなる。',
+    LOGIN_PASSWORD VARCHAR(50) NOT NULL COMMENT 'ログインパスワード: ログイン時に利用するパスワード。
+本当は良くないが、Exampleなのでひとまず暗号化していない。',
+    REMINDER_QUESTION VARCHAR(50) NOT NULL COMMENT 'リマインダ質問: パスワードを忘れた際のリマインダ機能における質問の内容。',
+    REMINDER_ANSWER VARCHAR(50) NOT NULL COMMENT 'リマインダ回答: パスワードを忘れた際のリマインダ機能における質問の答え。',
+    REGISTER_DATETIME DATETIME NOT NULL,
+    REGISTER_USER VARCHAR(200) NOT NULL,
+    UPDATE_DATETIME DATETIME NOT NULL,
+    UPDATE_USER VARCHAR(200) NOT NULL,
+    VERSION_NO BIGINT NOT NULL,
+    PRIMARY KEY (MEMBER_ID)
+) COMMENT='会員セキュリティ情報: 会員とは one-to-one で、会員一人につき必ず一つのセキュリティ情報がある'
+2026-02-22 14:34:38,715 [main] INFO  (DfSqlFileRunnerBase#traceSql():168) - 
+create table MEMBER_SERVICE(
+    MEMBER_ID INTEGER NOT NULL COMMENT '会員ID: 会員を参照するID。ユニークなので、会員とは one-to-one の関係に。',
+    AKIRAKANI_OKASHII_KARAMU_MEI INTEGER NOT NULL COMMENT 'サービスポイント数: 会員が現在利用できるサービスポイントの数。
+基本的に、購入時には増えてポイントを使ったら減る。',
+    SERVICE_RANK_CODE CHAR(3) NOT NULL COMMENT 'サービスランクコード: サービスランクを参照するコード。
+どんなランクがあるのかドキドキですね。',
+    REGISTER_DATETIME DATETIME NOT NULL,
+    REGISTER_USER VARCHAR(200) NOT NULL,
+    UPDATE_DATETIME DATETIME NOT NULL,
+    UPDATE_USER VARCHAR(200) NOT NULL,
+    VERSION_NO BIGINT NOT NULL,
+    PRIMARY KEY (MEMBER_ID)
+) COMMENT='会員サービス: 会員のサービス情報（ポイントサービスなど）。'
+2026-02-22 14:34:38,720 [main] INFO  (DfSqlFileRunnerBase#traceSql():168) - 
+create table MEMBER_WITHDRAWAL(
+    MEMBER_ID INTEGER NOT NULL,
+    WITHDRAWAL_REASON_CODE CHAR(3) COMMENT '退会理由コード: 退会した定型理由を参照するコード。
+何も言わずに退会する会員もいるので必須項目ではない。',
+    WITHDRAWAL_REASON_INPUT_TEXT TEXT COMMENT '退会理由入力テキスト: 会員がフリーテキストで入力できる退会理由。
+もう言いたいこと言ってもらう感じ。',
+    WITHDRAWAL_DATETIME DATETIME NOT NULL COMMENT '退会日時: 退会した瞬間の日時。
+正式会員日時と違い、こっちはone-to-oneの別テーブルで。',
+    REGISTER_DATETIME DATETIME NOT NULL,
+    REGISTER_USER VARCHAR(200) NOT NULL,
+    UPDATE_DATETIME DATETIME NOT NULL,
+    UPDATE_USER VARCHAR(200) NOT NULL,
+    PRIMARY KEY (MEMBER_ID)
+) COMMENT='会員退会情報: 退会会員の退会に関する詳細な情報。
+退会会員のみデータが存在する。'
+2026-02-22 14:34:38,726 [main] INFO  (DfSqlFileRunnerBase#traceSql():168) - 
+create table PURCHASE(
+    PURCHASE_ID BIGINT AUTO_INCREMENT NOT NULL COMMENT '購入ID: 連番',
+    MEMBER_ID INTEGER NOT NULL COMMENT '会員ID: 会員を参照するID。
+購入を識別する自然キー（複合ユニーク制約）の筆頭要素。',
+    PRODUCT_ID INTEGER NOT NULL COMMENT '商品ID: 商品を参照するID。',
+    PURCHASE_DATETIME DATETIME NOT NULL COMMENT '購入日時: 購入した瞬間の日時。',
+    PURCHASE_COUNT INTEGER NOT NULL COMMENT '購入数量: 購入した商品の（一回の購入における）数量。',
+    PURCHASE_PRICE INTEGER NOT NULL COMMENT '購入価格: 購入によって実際に会員が支払った（支払う予定の）価格。
+基本は商品の定価に購入数量を掛けたものになるが、
+ポイント利用や割引があったりと必ずしもそうはならない。',
+    PAYMENT_COMPLETE_FLG INTEGER NOT NULL COMMENT '支払完了フラグ: この購入に関しての支払いが完了しているか否か。',
+    REGISTER_DATETIME DATETIME NOT NULL,
+    REGISTER_USER VARCHAR(200) NOT NULL,
+    UPDATE_DATETIME DATETIME NOT NULL,
+    UPDATE_USER VARCHAR(200) NOT NULL,
+    VERSION_NO BIGINT NOT NULL,
+    PRIMARY KEY (PURCHASE_ID),
+    UNIQUE (MEMBER_ID, PRODUCT_ID, PURCHASE_DATETIME),
+    KEY (MEMBER_ID),
+    KEY (PRODUCT_ID)
+) COMMENT='購入: 一つの商品に対する一回の購入を表現する。
+一回の購入で一つの商品を複数個買うこともある。'
+2026-02-22 14:34:38,732 [main] INFO  (DfSqlFileRunnerBase#traceSql():168) - 
+create table PURCHASE_PAYMENT(
+    PURCHASE_PAYMENT_ID BIGINT AUTO_INCREMENT NOT NULL COMMENT '購入支払ID: 連番',
+    PURCHASE_ID BIGINT NOT NULL COMMENT '購入ID: 支払い対象の購入へのID',
+    PAYMENT_AMOUNT DECIMAL(10,2) NOT NULL COMMENT '支払金額: 支払った金額。さて、小数点なのはなぜでしょう？',
+    PAYMENT_DATETIME DATETIME NOT NULL COMMENT '支払日時: 支払ったときの日時',
+    PAYMENT_METHOD_CODE CHAR(3) NOT NULL COMMENT '支払方法コード: 手渡しや銀行振込など',
+    REGISTER_DATETIME DATETIME NOT NULL,
+    REGISTER_USER VARCHAR(200) NOT NULL,
+    UPDATE_DATETIME DATETIME NOT NULL,
+    UPDATE_USER VARCHAR(200) NOT NULL,
+    PRIMARY KEY (PURCHASE_PAYMENT_ID)
+) COMMENT='購入支払: 購入に対する支払。
+分割払いもできるのでmanyとなり、会員からの孫テーブルのテストができてうれしい。'
+2026-02-22 14:34:38,737 [main] INFO  (DfSqlFileRunnerBase#traceSql():168) - 
+create table PRODUCT(
+    PRODUCT_ID INTEGER AUTO_INCREMENT NOT NULL,
+    PRODUCT_NAME VARCHAR(50) NOT NULL COMMENT '商品名称',
+    PRODUCT_HANDLE_CODE VARCHAR(100) NOT NULL COMMENT '商品ハンドルコード: 商品を識別する業務上のコード。',
+    PRODUCT_CATEGORY_CODE CHAR(3) NOT NULL,
+    PRODUCT_STATUS_CODE CHAR(3) NOT NULL,
+    REGULAR_PRICE INTEGER COMMENT '定価',
+    REGISTER_DATETIME DATETIME NOT NULL,
+    REGISTER_USER VARCHAR(200) NOT NULL,
+    UPDATE_DATETIME DATETIME NOT NULL,
+    UPDATE_USER VARCHAR(200) NOT NULL,
+    VERSION_NO BIGINT NOT NULL,
+    PRIMARY KEY (PRODUCT_ID),
+    UNIQUE (PRODUCT_HANDLE_CODE)
+) COMMENT='商品'
+2026-02-22 14:34:38,742 [main] INFO  (DfSqlFileRunnerBase#traceSql():168) - 
+create table PRODUCT_CATEGORY(
+    PRODUCT_CATEGORY_CODE CHAR(3) NOT NULL COMMENT '商品カテゴリコード',
+    PRODUCT_CATEGORY_NAME VARCHAR(50) NOT NULL COMMENT '商品カテゴリ名称',
+    PARENT_CATEGORY_CODE CHAR(3) COMMENT '親カテゴリコード: 最上位の場合はデータなし。',
+    PRIMARY KEY (PRODUCT_CATEGORY_CODE)
+) COMMENT='商品カテゴリ: 商品のカテゴリを表現するマスタ。
+自己参照の階層になっている。'
+2026-02-22 14:34:38,748 [main] INFO  (DfSqlFileRunnerBase#traceSql():168) - 
+create table PRODUCT_STATUS(
+    PRODUCT_STATUS_CODE CHAR(3) NOT NULL COMMENT '商品ステータスコード',
+    PRODUCT_STATUS_NAME VARCHAR(50) NOT NULL COMMENT '商品ステータス名称',
+    PRIMARY KEY (PRODUCT_STATUS_CODE)
+) COMMENT='商品ステータス'
+2026-02-22 14:34:38,752 [main] INFO  (DfSqlFileRunnerBase#traceSql():168) - 
+create table REGION(
+    REGION_ID INTEGER NOT NULL COMMENT '地域ID',
+    REGION_NAME VARCHAR(50) NOT NULL COMMENT '地域名称',
+    PRIMARY KEY (REGION_ID)
+) COMMENT='地域: 主に会員の住所に対応する地域。
+かなりざっくりした感じではある。'
+2026-02-22 14:34:38,756 [main] INFO  (DfSqlFileRunnerBase#traceSql():168) - 
+create table SERVICE_RANK(
+    SERVICE_RANK_CODE CHAR(3) NOT NULL COMMENT 'サービスランクコード: サービスランクを識別するコード。',
+    SERVICE_RANK_NAME VARCHAR(50) NOT NULL COMMENT 'サービスランク名称: サービスランクの名称。
+（ゴールドとかプラチナとか基本的には威厳のある名前）',
+    SERVICE_POINT_INCIDENCE NUMERIC(5, 3) NOT NULL COMMENT 'サービスポイント発生率: 購入ごとのサービスポイントの発生率。
+購入価格にこの値をかけた数が発生ポイント。',
+    NEW_ACCEPTABLE_FLG INTEGER NOT NULL COMMENT '新規受け入れ可能フラグ: このランクへの新規受け入れができるかどうか。',
+    DESCRIPTION VARCHAR(200) NOT NULL,
+    DISPLAY_ORDER INTEGER NOT NULL,
+    PRIMARY KEY (SERVICE_RANK_CODE),
+    UNIQUE (DISPLAY_ORDER)
+) COMMENT='サービスランク: 会員のサービスレベルを表現するランク。
+（ゴールドとかプラチナとか）'
+2026-02-22 14:34:38,764 [main] INFO  (DfSqlFileRunnerBase#traceSql():168) - 
+create table MEMBER_STATUS(
+    MEMBER_STATUS_CODE CHAR(3) NOT NULL COMMENT '会員ステータスコード: 会員ステータスを識別するコード。',
+    MEMBER_STATUS_NAME VARCHAR(50) NOT NULL COMMENT '会員ステータス名称',
+    DESCRIPTION VARCHAR(200) NOT NULL COMMENT '説明: 会員ステータスそれぞれの説明。
+気の利いた説明があるとディベロッパーがとても助かる。',
+    DISPLAY_ORDER INTEGER NOT NULL COMMENT '表示順: UI上のステータスの表示順を示すNO。
+並べるときは、このカラムに対して昇順のソート条件にする。',
+    PRIMARY KEY (MEMBER_STATUS_CODE),
+    UNIQUE (DISPLAY_ORDER)
+) COMMENT='会員ステータス'
+2026-02-22 14:34:38,769 [main] INFO  (DfSqlFileRunnerBase#traceSql():168) - 
+create table WITHDRAWAL_REASON(
+    WITHDRAWAL_REASON_CODE CHAR(3) NOT NULL COMMENT '退会理由コード',
+    WITHDRAWAL_REASON_TEXT TEXT NOT NULL COMMENT '退会理由テキスト: 退会理由の内容。テキスト形式なので目いっぱい書けるが、
+そうするとUI側できれいに見せるのが大変でしょうね。',
+    DISPLAY_ORDER INTEGER NOT NULL COMMENT '表示順',
+    PRIMARY KEY (WITHDRAWAL_REASON_CODE),
+    UNIQUE (DISPLAY_ORDER)
+) COMMENT='退会理由: 会員に選ばせる定型的な退会理由のマスタ。'
+2026-02-22 14:34:38,773 [main] INFO  (DfSqlFileRunnerBase#traceSql():168) - 
+alter table `MEMBER` add constraint FK_MEMBER_MEMBER_STATUS 
+    foreign key (MEMBER_STATUS_CODE) references MEMBER_STATUS (MEMBER_STATUS_CODE)
+2026-02-22 14:34:38,791 [main] INFO  (DfSqlFileRunnerBase#traceSql():168) - 
+alter table MEMBER_ADDRESS add constraint FK_MEMBER_ADDRESS_MEMBER 
+    foreign key (MEMBER_ID) references `MEMBER` (MEMBER_ID)
+2026-02-22 14:34:38,805 [main] INFO  (DfSqlFileRunnerBase#traceSql():168) - 
+alter table MEMBER_ADDRESS add constraint FK_MEMBER_ADDRESS_REGION 
+    foreign key (REGION_ID) references REGION (REGION_ID)
+2026-02-22 14:34:38,818 [main] INFO  (DfSqlFileRunnerBase#traceSql():168) - 
+alter table MEMBER_LOGIN add constraint FK_MEMBER_LOGIN_MEMBER_STATUS 
+    foreign key (LOGIN_MEMBER_STATUS_CODE) references MEMBER_STATUS (MEMBER_STATUS_CODE)
+2026-02-22 14:34:38,832 [main] INFO  (DfSqlFileRunnerBase#traceSql():168) - 
+alter table MEMBER_LOGIN add constraint FK_MEMBER_LOGIN_MEMBER 
+    foreign key (MEMBER_ID) references `MEMBER` (MEMBER_ID)
+2026-02-22 14:34:38,846 [main] INFO  (DfSqlFileRunnerBase#traceSql():168) - 
+alter table MEMBER_SERVICE add constraint FK_MEMBER_SERVICE_MEMBER 
+    foreign key (MEMBER_ID) references `MEMBER` (MEMBER_ID)
+2026-02-22 14:34:38,857 [main] INFO  (DfSqlFileRunnerBase#traceSql():168) - 
+alter table MEMBER_SERVICE add constraint FK_MEMBER_SERVICE_SERVICE_RANK_CODE 
+    foreign key (SERVICE_RANK_CODE) references SERVICE_RANK (SERVICE_RANK_CODE)
+2026-02-22 14:34:38,869 [main] INFO  (DfSqlFileRunnerBase#traceSql():168) - 
+alter table MEMBER_SECURITY add constraint FK_MEMBER_SECURITY_MEMBER 
+    foreign key (MEMBER_ID) references `MEMBER` (MEMBER_ID)
+2026-02-22 14:34:38,880 [main] INFO  (DfSqlFileRunnerBase#traceSql():168) - 
+alter table MEMBER_WITHDRAWAL add constraint FK_MEMBER_WITHDRAWAL_MEMBER 
+    foreign key (MEMBER_ID) references `MEMBER` (MEMBER_ID)
+2026-02-22 14:34:38,891 [main] INFO  (DfSqlFileRunnerBase#traceSql():168) - 
+alter table MEMBER_WITHDRAWAL add constraint FK_MEMBER_WITHDRAWAL_WITHDRAWAL_REASON 
+    foreign key (WITHDRAWAL_REASON_CODE) references WITHDRAWAL_REASON (WITHDRAWAL_REASON_CODE)
+2026-02-22 14:34:38,903 [main] INFO  (DfSqlFileRunnerBase#traceSql():168) - 
+alter table PURCHASE add constraint FK_PURCHASE_MEMBER 
+    foreign key (MEMBER_ID) references `MEMBER` (MEMBER_ID)
+2026-02-22 14:34:38,915 [main] INFO  (DfSqlFileRunnerBase#traceSql():168) - 
+alter table PURCHASE add constraint FK_PURCHASE_PRODUCT 
+    foreign key (PRODUCT_ID) references PRODUCT (PRODUCT_ID)
+2026-02-22 14:34:38,929 [main] INFO  (DfSqlFileRunnerBase#traceSql():168) - 
+alter table PURCHASE_PAYMENT add constraint FK_PURCHASE_PAYMENT_PURCHASE 
+    foreign key (PURCHASE_ID) references PURCHASE (PURCHASE_ID)
+2026-02-22 14:34:38,941 [main] INFO  (DfSqlFileRunnerBase#traceSql():168) - 
+alter table PRODUCT add constraint FK_PRODUCT_PRODUCT_CATEGORY 
+    foreign key (PRODUCT_CATEGORY_CODE) references PRODUCT_CATEGORY (PRODUCT_CATEGORY_CODE)
+2026-02-22 14:34:38,959 [main] INFO  (DfSqlFileRunnerBase#traceSql():168) - 
+alter table PRODUCT add constraint FK_PRODUCT_PRODUCT_STATUS 
+    foreign key (PRODUCT_STATUS_CODE) references PRODUCT_STATUS (PRODUCT_STATUS_CODE)
+2026-02-22 14:34:38,976 [main] INFO  (DfSqlFileRunnerBase#traceSql():168) - 
+alter table PRODUCT_CATEGORY add constraint FK_PRODUCT_CATEGORY_PARENT 
+    foreign key (PARENT_CATEGORY_CODE) references PRODUCT_CATEGORY (PRODUCT_CATEGORY_CODE)
+2026-02-22 14:34:38,989 [main] INFO  (DfSqlFileRunnerBase#traceSql():168) - create index IX_MEMBER_MEMBER_NAME on `MEMBER`(MEMBER_NAME)
+2026-02-22 14:34:39,005 [main] INFO  (DfSqlFileRunnerBase#traceSql():168) - create index IX_MEMBER_FORMALIZED_DATETIME on `MEMBER`(FORMALIZED_DATETIME)
+2026-02-22 14:34:39,021 [main] INFO  (DfSqlFileRunnerBase#traceSql():168) - create index IX_MEMBER_LOGIN_DATETIME on MEMBER_LOGIN(LOGIN_DATETIME)
+2026-02-22 14:34:39,027 [main] INFO  (DfSqlFileRunnerBase#traceSql():168) - create index IX_MEMBER_SERVICE_POINT_COUNT on MEMBER_SERVICE(AKIRAKANI_OKASHII_KARAMU_MEI)
+2026-02-22 14:34:39,034 [main] INFO  (DfSqlFileRunnerBase#traceSql():168) - create index IX_PURCHASE_PRODUCT_DATETIME on PURCHASE(PRODUCT_ID, PURCHASE_DATETIME)
+2026-02-22 14:34:39,042 [main] INFO  (DfSqlFileRunnerBase#traceSql():168) - create index IX_PURCHASE_DATETIME_MEMBER on PURCHASE(PURCHASE_DATETIME, MEMBER_ID)
+2026-02-22 14:34:39,050 [main] INFO  (DfSqlFileRunnerBase#traceSql():168) - create index IX_PURCHASE_PRICE on PURCHASE(PURCHASE_PRICE)
+2026-02-22 14:34:39,058 [main] INFO  (DfSqlFileRunnerBase#traceSql():168) - create index IX_PURCHASE_PAYMENT_DATETIME on PURCHASE_PAYMENT(PAYMENT_DATETIME, PAYMENT_AMOUNT)
+2026-02-22 14:34:39,063 [main] INFO  (DfSqlFileRunnerBase#traceSql():168) - create index IX_PRODUCT_PRODUCT_NAME on PRODUCT(PRODUCT_NAME)
+2026-02-22 14:34:39,072 [main] INFO  (DfSqlFileRunnerBase#traceResult():172) -  -> success=40 failure=0
+2026-02-22 14:34:39,072 [main] INFO  (DfSqlFileFireMan#fire():68) - ...Firing: replace-schema.sql
+2026-02-22 14:34:39,072 [main] INFO  (DfSqlFileRunnerBase#traceResult():172) -  -> success=0 failure=0
+2026-02-22 14:34:39,073 [main] INFO  (DfSqlFileFireMan#fire():93) - Create Schema: success=44, failure=0 (in 3 files)
+2026-02-22 14:34:39,073 [main] INFO  (DfCreateSchemaProcess#destroyChangeUserConnection():594) - ...Closing connections to change-users: [system]
+2026-02-22 14:34:39,086 [main] INFO  (DfLoadDataProcess#execute():133) - 
+2026-02-22 14:34:39,087 [main] INFO  (DfLoadDataProcess#execute():134) - * * * * * * * * * * *
+2026-02-22 14:34:39,087 [main] INFO  (DfLoadDataProcess#execute():135) - *                   *
+2026-02-22 14:34:39,087 [main] INFO  (DfLoadDataProcess#execute():136) - * Load Data         *
+2026-02-22 14:34:39,087 [main] INFO  (DfLoadDataProcess#execute():137) - *                   *
+2026-02-22 14:34:39,087 [main] INFO  (DfLoadDataProcess#execute():138) - * * * * * * * * * * *
+2026-02-22 14:34:39,096 [main] INFO  (DfDelimiterDataWriterImpl#writeData():97) - /= = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = 
+2026-02-22 14:34:39,096 [main] INFO  (DfDelimiterDataWriterImpl#writeData():98) - writeData(playsql/data/common/tsv/UTF-8/acyclic_01_01-MEMBER_STATUS.tsv)
+2026-02-22 14:34:39,097 [main] INFO  (DfDelimiterDataWriterImpl#writeData():99) - = = = = = = =/
+2026-02-22 14:34:39,098 [main] INFO  (DfTableExtractor#doGetTableList():66) - ...Getting tables:
+2026-02-22 14:34:39,098 [main] INFO  (DfTableExtractor#doGetTableList():67) -   schema = {maihamadb.$$NoNameSchema$$ as main}
+2026-02-22 14:34:39,098 [main] INFO  (DfTableExtractor#doGetTableList():68) -   types  = [TABLE, VIEW]
+2026-02-22 14:34:39,123 [main] INFO  (DfAbsractDataWriter#handleLoggingInsert():1090) - MEMBER_STATUS:{FML, 正式会員, 正式な会員としてサイトサービスが利用可能, 1}
+2026-02-22 14:34:39,136 [main] INFO  (DfAbsractDataWriter#handleLoggingInsert():1090) - MEMBER_STATUS:{PRV, 仮会員, 入会直後のステータスで一部のサイトサービスが利用可能, 3}
+2026-02-22 14:34:39,136 [main] INFO  (DfAbsractDataWriter#handleLoggingInsert():1090) - MEMBER_STATUS:{WDL, 退会会員, 退会が確定した会員でサイトサービスはダメ, 2}
+2026-02-22 14:34:39,140 [main] INFO  (DfAbsractDataWriter#noticeLoadedRowSize():1106) -  -> 3 rows are loaded to MEMBER_STATUS
+2026-02-22 14:34:39,141 [main] INFO  (DfDelimiterDataWriterImpl#writeData():97) - /= = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = 
+2026-02-22 14:34:39,141 [main] INFO  (DfDelimiterDataWriterImpl#writeData():98) - writeData(playsql/data/common/tsv/UTF-8/acyclic_01_02-PRODUCT_CATEGORY.tsv)
+2026-02-22 14:34:39,141 [main] INFO  (DfDelimiterDataWriterImpl#writeData():99) - = = = = = = =/
+2026-02-22 14:34:39,141 [main] INFO  (DfTableExtractor#doGetTableList():66) - ...Getting tables:
+2026-02-22 14:34:39,141 [main] INFO  (DfTableExtractor#doGetTableList():67) -   schema = {maihamadb.$$NoNameSchema$$ as main}
+2026-02-22 14:34:39,141 [main] INFO  (DfTableExtractor#doGetTableList():68) -   types  = [TABLE, VIEW]
+2026-02-22 14:34:39,146 [main] INFO  (DfAbsractDataWriter#handleLoggingInsert():1090) - PRODUCT_CATEGORY:{FOD, 食品, null}
+2026-02-22 14:34:39,147 [main] INFO  (DfAbsractDataWriter#handleLoggingInsert():1090) - PRODUCT_CATEGORY:{MSC, 音楽, null}
+2026-02-22 14:34:39,147 [main] INFO  (DfAbsractDataWriter#handleLoggingInsert():1090) - PRODUCT_CATEGORY:{HEB, ハーブ, FOD}
+2026-02-22 14:34:39,147 [main] INFO  (DfAbsractDataWriter#handleLoggingInsert():1090) - PRODUCT_CATEGORY:{INS, 楽器, MSC}
+2026-02-22 14:34:39,147 [main] INFO  (DfAbsractDataWriter#handleLoggingInsert():1090) - PRODUCT_CATEGORY:{MCD, 音楽CD, MSC}
+2026-02-22 14:34:39,149 [main] INFO  (DfAbsractDataWriter#noticeLoadedRowSize():1106) -  -> 5 rows are loaded to PRODUCT_CATEGORY
+2026-02-22 14:34:39,149 [main] INFO  (DfDelimiterDataWriterImpl#writeData():97) - /= = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = 
+2026-02-22 14:34:39,149 [main] INFO  (DfDelimiterDataWriterImpl#writeData():98) - writeData(playsql/data/common/tsv/UTF-8/acyclic_01_03-PRODUCT_STATUS.tsv)
+2026-02-22 14:34:39,149 [main] INFO  (DfDelimiterDataWriterImpl#writeData():99) - = = = = = = =/
+2026-02-22 14:34:39,149 [main] INFO  (DfTableExtractor#doGetTableList():66) - ...Getting tables:
+2026-02-22 14:34:39,150 [main] INFO  (DfTableExtractor#doGetTableList():67) -   schema = {maihamadb.$$NoNameSchema$$ as main}
+2026-02-22 14:34:39,150 [main] INFO  (DfTableExtractor#doGetTableList():68) -   types  = [TABLE, VIEW]
+2026-02-22 14:34:39,153 [main] INFO  (DfAbsractDataWriter#handleLoggingInsert():1090) - PRODUCT_STATUS:{ONS, 生産販売可能}
+2026-02-22 14:34:39,154 [main] INFO  (DfAbsractDataWriter#handleLoggingInsert():1090) - PRODUCT_STATUS:{PST, 生産中止}
+2026-02-22 14:34:39,154 [main] INFO  (DfAbsractDataWriter#handleLoggingInsert():1090) - PRODUCT_STATUS:{SST, 販売中止}
+2026-02-22 14:34:39,155 [main] INFO  (DfAbsractDataWriter#noticeLoadedRowSize():1106) -  -> 3 rows are loaded to PRODUCT_STATUS
+2026-02-22 14:34:39,156 [main] INFO  (DfDelimiterDataWriterImpl#writeData():97) - /= = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = 
+2026-02-22 14:34:39,156 [main] INFO  (DfDelimiterDataWriterImpl#writeData():98) - writeData(playsql/data/common/tsv/UTF-8/acyclic_01_04-REGION.tsv)
+2026-02-22 14:34:39,156 [main] INFO  (DfDelimiterDataWriterImpl#writeData():99) - = = = = = = =/
+2026-02-22 14:34:39,156 [main] INFO  (DfTableExtractor#doGetTableList():66) - ...Getting tables:
+2026-02-22 14:34:39,156 [main] INFO  (DfTableExtractor#doGetTableList():67) -   schema = {maihamadb.$$NoNameSchema$$ as main}
+2026-02-22 14:34:39,156 [main] INFO  (DfTableExtractor#doGetTableList():68) -   types  = [TABLE, VIEW]
+2026-02-22 14:34:39,160 [main] INFO  (DfAbsractDataWriter#handleLoggingInsert():1090) - REGION:{1, アメリカ}
+2026-02-22 14:34:39,161 [main] INFO  (DfAbsractDataWriter#handleLoggingInsert():1090) - REGION:{2, カナダ}
+2026-02-22 14:34:39,161 [main] INFO  (DfAbsractDataWriter#handleLoggingInsert():1090) - REGION:{3, 中国}
+2026-02-22 14:34:39,161 [main] INFO  (DfAbsractDataWriter#handleLoggingInsert():1090) - REGION:{4, 千葉}
+2026-02-22 14:34:39,163 [main] INFO  (DfAbsractDataWriter#noticeLoadedRowSize():1106) -  -> 4 rows are loaded to REGION
+2026-02-22 14:34:39,163 [main] INFO  (DfDelimiterDataWriterImpl#writeData():97) - /= = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = 
+2026-02-22 14:34:39,163 [main] INFO  (DfDelimiterDataWriterImpl#writeData():98) - writeData(playsql/data/common/tsv/UTF-8/acyclic_01_05-SERVICE_RANK.tsv)
+2026-02-22 14:34:39,163 [main] INFO  (DfDelimiterDataWriterImpl#writeData():99) - = = = = = = =/
+2026-02-22 14:34:39,163 [main] INFO  (DfTableExtractor#doGetTableList():66) - ...Getting tables:
+2026-02-22 14:34:39,163 [main] INFO  (DfTableExtractor#doGetTableList():67) -   schema = {maihamadb.$$NoNameSchema$$ as main}
+2026-02-22 14:34:39,163 [main] INFO  (DfTableExtractor#doGetTableList():68) -   types  = [TABLE, VIEW]
+2026-02-22 14:34:39,167 [main] INFO  (DfAbsractDataWriter#handleLoggingInsert():1090) - SERVICE_RANK:{BRZ, BRONZE, 2.000, 1, bronze rank, 4}
+2026-02-22 14:34:39,167 [main] INFO  (DfAbsractDataWriter#handleLoggingInsert():1090) - SERVICE_RANK:{GLD, GOLD, 9.200, 1, gold rank, 2}
+2026-02-22 14:34:39,167 [main] INFO  (DfAbsractDataWriter#handleLoggingInsert():1090) - SERVICE_RANK:{PLS, PLASTIC, 0.100, 0, plastic rank, 5}
+2026-02-22 14:34:39,168 [main] INFO  (DfAbsractDataWriter#handleLoggingInsert():1090) - SERVICE_RANK:{PLT, PLATINUM, 12.300, 1, platinum rank, 1}
+2026-02-22 14:34:39,168 [main] INFO  (DfAbsractDataWriter#handleLoggingInsert():1090) - SERVICE_RANK:{SIL, SILVER, 6.740, 1, silver rank, 3}
+2026-02-22 14:34:39,170 [main] INFO  (DfAbsractDataWriter#noticeLoadedRowSize():1106) -  -> 5 rows are loaded to SERVICE_RANK
+2026-02-22 14:34:39,170 [main] INFO  (DfDelimiterDataWriterImpl#writeData():97) - /= = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = 
+2026-02-22 14:34:39,170 [main] INFO  (DfDelimiterDataWriterImpl#writeData():98) - writeData(playsql/data/common/tsv/UTF-8/acyclic_01_06-WITHDRAWAL_REASON.tsv)
+2026-02-22 14:34:39,170 [main] INFO  (DfDelimiterDataWriterImpl#writeData():99) - = = = = = = =/
+2026-02-22 14:34:39,171 [main] INFO  (DfTableExtractor#doGetTableList():66) - ...Getting tables:
+2026-02-22 14:34:39,171 [main] INFO  (DfTableExtractor#doGetTableList():67) -   schema = {maihamadb.$$NoNameSchema$$ as main}
+2026-02-22 14:34:39,171 [main] INFO  (DfTableExtractor#doGetTableList():68) -   types  = [TABLE, VIEW]
+2026-02-22 14:34:39,175 [main] INFO  (DfAbsractDataWriter#handleLoggingInsert():1090) - WITHDRAWAL_REASON:{FRT, フリテンだから, 3}
+2026-02-22 14:34:39,175 [main] INFO  (DfAbsractDataWriter#handleLoggingInsert():1090) - WITHDRAWAL_REASON:{OTH, その他理由, 4}
+2026-02-22 14:34:39,175 [main] INFO  (DfAbsractDataWriter#handleLoggingInsert():1090) - WITHDRAWAL_REASON:{PRD, 商品に魅力がないから, 2}
+2026-02-22 14:34:39,175 [main] INFO  (DfAbsractDataWriter#handleLoggingInsert():1090) - WITHDRAWAL_REASON:{SIT, サイトが使いにくいから, 1}
+2026-02-22 14:34:39,177 [main] INFO  (DfAbsractDataWriter#noticeLoadedRowSize():1106) -  -> 4 rows are loaded to WITHDRAWAL_REASON
+2026-02-22 14:34:39,179 [main] INFO  (DfDelimiterDataWriterImpl#writeData():97) - /= = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = 
+2026-02-22 14:34:39,179 [main] INFO  (DfDelimiterDataWriterImpl#writeData():98) - writeData(playsql/data/ut/reversetsv/UTF-8/cyclic_01_01-PRODUCT.tsv)
+2026-02-22 14:34:39,179 [main] INFO  (DfDelimiterDataWriterImpl#writeData():99) - = = = = = = =/
+2026-02-22 14:34:39,180 [main] INFO  (DfTableExtractor#doGetTableList():66) - ...Getting tables:
+2026-02-22 14:34:39,180 [main] INFO  (DfTableExtractor#doGetTableList():67) -   schema = {maihamadb.$$NoNameSchema$$ as main}
+2026-02-22 14:34:39,180 [main] INFO  (DfTableExtractor#doGetTableList():68) -   types  = [TABLE, VIEW]
+2026-02-22 14:34:39,184 [main] INFO  (DfAbsractDataWriter#handleLoggingInsert():1090) - PRODUCT:{1, Cold Spring Harbor, BILLYJOEL-01, MCD, PST, 1100, 0}
+2026-02-22 14:34:39,184 [main] INFO  (DfAbsractDataWriter#handleLoggingInsert():1090) - PRODUCT:{2, Piano Man, BILLYJOEL-02, MCD, ONS, 1200, 0}
+2026-02-22 14:34:39,184 [main] INFO  (DfAbsractDataWriter#handleLoggingInsert():1090) - PRODUCT:{3, Streetlife Serenade, BILLYJOEL-03, MCD, ONS, 1300, 0}
+2026-02-22 14:34:39,185 [main] INFO  (DfAbsractDataWriter#handleLoggingInsert():1090) - PRODUCT:{4, Turnstiles, BILLYJOEL-04, MCD, ONS, 1400, 0}
+2026-02-22 14:34:39,185 [main] INFO  (DfAbsractDataWriter#handleLoggingInsert():1090) - PRODUCT:{5, The Stranger, BILLYJOEL-05, MCD, ONS, 1500, 0}
+2026-02-22 14:34:39,185 [main] INFO  (DfAbsractDataWriter#handleLoggingInsert():1090) - PRODUCT:{6, 52nd Street, BILLYJOEL-06, MCD, ONS, 1600, 0}
+2026-02-22 14:34:39,185 [main] INFO  (DfAbsractDataWriter#handleLoggingInsert():1090) - PRODUCT:{7, Glass House, BILLYJOEL-07, MCD, ONS, 1700, 0}
+2026-02-22 14:34:39,185 [main] INFO  (DfAbsractDataWriter#handleLoggingInsert():1090) - PRODUCT:{8, Nylon Curtain, BILLYJOEL-08, MCD, ONS, 1800, 0}
+2026-02-22 14:34:39,185 [main] INFO  (DfAbsractDataWriter#handleLoggingInsert():1090) - PRODUCT:{9, Bridge, BILLYJOEL-09, MCD, ONS, 1900, 0}
+2026-02-22 14:34:39,186 [main] INFO  (DfAbsractDataWriter#handleLoggingInsert():1090) - PRODUCT:{10, Storm Front, BILLYJOEL-10, MCD, ONS, 2000, 0}
+2026-02-22 14:34:39,186 [main] INFO  (DfAbsractDataWriter#handleLoggingInsert():1090) - PRODUCT:{11, River of Dreams, BILLYJOEL-11, MCD, ONS, 2100, 0}
+2026-02-22 14:34:39,186 [main] INFO  (DfAbsractDataWriter#handleLoggingInsert():1090) - PRODUCT:{12, Grand Piano, PIANO-01, INS, ONS, 1400000, 0}
+2026-02-22 14:34:39,186 [main] INFO  (DfAbsractDataWriter#handleLoggingInsert():1090) - PRODUCT:{13, Upright Piano, PIANO-02, INS, ONS, 1100000, 0}
+2026-02-22 14:34:39,186 [main] INFO  (DfAbsractDataWriter#handleLoggingInsert():1090) - PRODUCT:{14, Low Price Flute, FLUTE-01, INS, ONS, 50000, 0}
+2026-02-22 14:34:39,186 [main] INFO  (DfAbsractDataWriter#handleLoggingInsert():1090) - PRODUCT:{15, Silver Flute, FLUTE-02, INS, ONS, null, 0}
+2026-02-22 14:34:39,186 [main] INFO  (DfAbsractDataWriter#handleLoggingInsert():1090) - PRODUCT:{16, Gold Flute, FLUTE-03, INS, ONS, null, 0}
+2026-02-22 14:34:39,186 [main] INFO  (DfAbsractDataWriter#handleLoggingInsert():1090) - PRODUCT:{17, Rosemary (100g), HARB-100-01, HEB, ONS, 400, 0}
+2026-02-22 14:34:39,187 [main] INFO  (DfAbsractDataWriter#handleLoggingInsert():1090) - PRODUCT:{18, Lemon Grass (100g), HARB-100-02, HEB, ONS, 380, 0}
+2026-02-22 14:34:39,187 [main] INFO  (DfAbsractDataWriter#handleLoggingInsert():1090) - PRODUCT:{19, Camomile (100g), HARB-100-03, HEB, ONS, 380, 0}
+2026-02-22 14:34:39,187 [main] INFO  (DfAbsractDataWriter#handleLoggingInsert():1090) - PRODUCT:{20, Hatomugi (100g), HARB-100-04, HEB, ONS, 340, 0}
+2026-02-22 14:34:39,193 [main] INFO  (DfDelimiterDataWriterImpl#performNonBatchRetry():123) - ...Retrying as non-batch to derive target row
+2026-02-22 14:34:39,194 [main] INFO  (DfAbsractDataWriter#handleLoggingInsert():1090) - PRODUCT:{1, Cold Spring Harbor, BILLYJOEL-01, MCD, PST, 1100, 0}
+2026-02-22 14:34:39,195 [main] ERROR (DfDBFluteTaskUtil#logException():150) - Look! Read the message below.
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+Failed to execute DBFlute Task 'ReplaceSchema'.
+
+[Advice]
+Check the exception messages and the stack traces.
+
+[Database Product]
+MySQL 8.0.45
+
+[JDBC Driver]
+MySQL Connector Java mysql-connector-java-5.1.49 ( Revision: ad86f36e100e104cd926c6b81c8cab9565750116 ) for JDBC 4.0
+* * * * * * * * * */
+org.dbflute.exception.DfDelimiterDataRegistrationFailureException: Look! Read the message below.
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+Failed to register the table data.
+
+[Advice]
+Please confirm the SQLException message.
+*And also check the insert values to not-null columns.
+
+[Delimiter File]
+playsql/data/ut/reversetsv/UTF-8/cyclic_01_01-PRODUCT.tsv
+
+[Table]
+PRODUCT
+
+[SQLException]
+org.dbflute.exception.DfJDBCException
+JDBC said...
+/- - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+[SQLException]
+java.sql.BatchUpdateException
+Field 'REGISTER_DATETIME' doesn't have a default value
+- - - - - - - - - -/
+
+[Target Row]
+(derived from non-batch retry)
+java.sql.SQLException
+Field 'REGISTER_DATETIME' doesn't have a default value
+/- - - - - - - - - - - - - - - - - - - -
+Column Def: [PRODUCT_ID, PRODUCT_NAME, PRODUCT_HANDLE_CODE, PRODUCT_CATEGORY_CODE, PRODUCT_STATUS_CODE, REGULAR_PRICE, VERSION_NO]
+Row Values: [1, Cold Spring Harbor, BILLYJOEL-01, MCD, PST, 1100, 0]
+Row Number: 1
+- - - - - - - - - -/
+
+[Executed SQL]
+insert into PRODUCT (PRODUCT_ID, PRODUCT_NAME, PRODUCT_HANDLE_CODE, PRODUCT_CATEGORY_CODE, PRODUCT_STATUS_CODE, REGULAR_PRICE, VERSION_NO) values(?, ?, ?, ?, ?, ?, ?)
+
+[Bind Type]
+PRODUCT_ID = class java.lang.Integer
+PRODUCT_NAME = class java.lang.String
+PRODUCT_HANDLE_CODE = class java.lang.String
+PRODUCT_CATEGORY_CODE = class java.lang.String
+PRODUCT_STATUS_CODE = class java.lang.String
+REGULAR_PRICE = class java.lang.Integer
+VERSION_NO = class java.lang.Long
+
+[String Processor]
+PRODUCT_ID = NumberStringProcessor
+PRODUCT_NAME = RealStringProcessor
+PRODUCT_HANDLE_CODE = RealStringProcessor
+PRODUCT_CATEGORY_CODE = RealStringProcessor
+PRODUCT_STATUS_CODE = RealStringProcessor
+REGULAR_PRICE = NumberStringProcessor
+VERSION_NO = NumberStringProcessor
+* * * * * * * * * */
+	at org.dbflute.logic.replaceschema.loaddata.delimiter.DfDelimiterDataWriterImpl.doWriteData(DfDelimiterDataWriterImpl.java:359)
+	at org.dbflute.logic.replaceschema.loaddata.delimiter.DfDelimiterDataWriterImpl.writeData(DfDelimiterDataWriterImpl.java:101)
+	at org.dbflute.logic.replaceschema.loaddata.delimiter.DfDelimiterDataHandlerImpl.writeSeveralData(DfDelimiterDataHandlerImpl.java:127)
+	at org.dbflute.logic.replaceschema.process.DfLoadDataProcess.writeDbFromDelimiterFile(DfLoadDataProcess.java:200)
+	at org.dbflute.logic.replaceschema.process.DfLoadDataProcess.writeDbFromDelimiterFileAsLoadingTypeData(DfLoadDataProcess.java:190)
+	at org.dbflute.logic.replaceschema.process.DfLoadDataProcess.execute(DfLoadDataProcess.java:161)
+	at org.dbflute.task.DfReplaceSchemaTask.loadData(DfReplaceSchemaTask.java:361)
+	at org.dbflute.task.DfReplaceSchemaTask.executeCoreProcess(DfReplaceSchemaTask.java:259)
+	at org.dbflute.task.DfReplaceSchemaTask.processReplaceSchema(DfReplaceSchemaTask.java:240)
+	at org.dbflute.task.DfReplaceSchemaTask.doExecute(DfReplaceSchemaTask.java:160)
+	at org.dbflute.task.bs.DfAbstractTexenTask$1.callActualExecute(DfAbstractTexenTask.java:129)
+	at org.dbflute.task.bs.assistant.DfTaskBasicController.doExecute(DfTaskBasicController.java:192)
+	at org.dbflute.task.bs.assistant.DfTaskBasicController.execute(DfTaskBasicController.java:78)
+	at org.dbflute.task.bs.DfAbstractTexenTask.execute(DfAbstractTexenTask.java:151)
+	at org.apache.tools.ant.UnknownElement.execute(UnknownElement.java:288)
+	at jdk.internal.reflect.GeneratedMethodAccessor3.invoke(Unknown Source)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at org.apache.tools.ant.dispatch.DispatchUtils.execute(DispatchUtils.java:105)
+	at org.apache.tools.ant.Task.perform(Task.java:348)
+	at org.apache.tools.ant.Target.execute(Target.java:357)
+	at org.apache.tools.ant.Target.performTasks(Target.java:385)
+	at org.apache.tools.ant.Project.executeSortedTargets(Project.java:1329)
+	at org.apache.tools.ant.Project.executeTarget(Project.java:1298)
+	at org.apache.tools.ant.helper.DefaultExecutor.executeTargets(DefaultExecutor.java:41)
+	at org.apache.tools.ant.Project.executeTargets(Project.java:1181)
+	at org.apache.tools.ant.Main.runBuild(Main.java:698)
+	at org.apache.tools.ant.Main.startAnt(Main.java:199)
+	at org.apache.tools.ant.launch.Launcher.run(Launcher.java:257)
+	at org.apache.tools.ant.launch.Launcher.main(Launcher.java:104)
+Caused by: java.sql.BatchUpdateException: Field 'REGISTER_DATETIME' doesn't have a default value
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:481)
+	at com.mysql.jdbc.Util.handleNewInstance(Util.java:403)
+	at com.mysql.jdbc.Util.getInstance(Util.java:386)
+	at com.mysql.jdbc.SQLError.createBatchUpdateException(SQLError.java:1154)
+	at com.mysql.jdbc.PreparedStatement.executeBatchSerially(PreparedStatement.java:1835)
+	at com.mysql.jdbc.PreparedStatement.executeBatchInternal(PreparedStatement.java:1319)
+	at com.mysql.jdbc.StatementImpl.executeBatch(StatementImpl.java:954)
+	at org.dbflute.logic.replaceschema.loaddata.delimiter.DfDelimiterDataWriterImpl.doWriteData(DfDelimiterDataWriterImpl.java:346)
+	... 29 more
+Caused by: java.sql.SQLException: Field 'REGISTER_DATETIME' doesn't have a default value
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:965)
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:3933)
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:3869)
+	at com.mysql.jdbc.MysqlIO.sendCommand(MysqlIO.java:2524)
+	at com.mysql.jdbc.MysqlIO.sqlQueryDirect(MysqlIO.java:2675)
+	at com.mysql.jdbc.ConnectionImpl.execSQL(ConnectionImpl.java:2465)
+	at com.mysql.jdbc.PreparedStatement.executeInternal(PreparedStatement.java:1915)
+	at com.mysql.jdbc.PreparedStatement.executeUpdateInternal(PreparedStatement.java:2136)
+	at com.mysql.jdbc.PreparedStatement.executeBatchSerially(PreparedStatement.java:1813)
+	... 32 more
+2026-02-22 14:34:39,199 [main] INFO  (DfDataSourceHandler#commit():94) - ...commit()
+2026-02-22 14:34:39,199 [main] INFO  (DfDataSourceHandler#destroy():116) - ...rollback()
+2026-02-22 14:34:39,199 [main] INFO  (DfDataSourceHandler#destroy():120) - ...closeReally()
+2026-02-22 14:34:39,201 [main] INFO  (DfDBFluteTaskUtil#logFinalMessage():139) - 
+_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/
+[Final Message]: 00m00s926ms *Abort
+
+  DBFLUTE_CLIENT: {maihamadb}
+    database  = mysql (MySQL 8.0.45)
+    language  = java
+    container = lasta_di
+    package   = org.docksidestage.handson.dbflute
+
+  DBFLUTE_ENVIRONMENT_TYPE: {}
+    driver = com.mysql.jdbc.Driver
+    url    = jdbc:mysql://localhost:43376/maihamadb?allowPublicKeyRetrieval=true&sslMode=DISABLED
+    schema = {maihamadb.$$NoNameSchema$$ as main}
+    user   = maihamadb
+    props  = {password=, user=root}
+    additionalSchema = 
+    repsEnvType      = ut
+    refreshProject   = $$AutoDetect$$
+
+ Create Schema: success=44, failure=0 (in 3 files) - 00m00s507ms
+  (Create Schema) - 00m00s504ms
+  o replace-schema-00-system.sql
+  o replace-schema-10-basic.sql
+  o replace-schema.sql
+
+ Load Data: common:{tsv=6} - 00m00s108ms
+  <common>
+  o acyclic_01_01-MEMBER_STATUS.tsv
+  o acyclic_01_02-PRODUCT_CATEGORY.tsv
+  o acyclic_01_03-PRODUCT_STATUS.tsv
+  o acyclic_01_04-REGION.tsv
+  o acyclic_01_05-SERVICE_RANK.tsv
+  o acyclic_01_06-WITHDRAWAL_REASON.tsv
+  x (failed: Look at the exception message)
+    * * * * * *
+    * Failure *
+    * * * * * *
+_/_/_/_/_/_/_/_/_/_/ {ReplaceSchema}
+2026-02-22 14:35:20,827 [main] INFO  (TorqueJDBCTransformTask#begin():104) - +------------------------------------------+
+2026-02-22 14:35:20,828 [main] INFO  (TorqueJDBCTransformTask#begin():105) - |                                          |
+2026-02-22 14:35:20,829 [main] INFO  (TorqueJDBCTransformTask#begin():106) - |                   JDBC                   |
+2026-02-22 14:35:20,829 [main] INFO  (TorqueJDBCTransformTask#begin():107) - |                                          |
+2026-02-22 14:35:20,829 [main] INFO  (TorqueJDBCTransformTask#begin():108) - +------------------------------------------+
+2026-02-22 14:35:20,838 [main] INFO  (DfDataSourceHandler#prepare():78) - ...Preparing data source:
+2026-02-22 14:35:20,839 [main] INFO  (DfDataSourceHandler#prepare():79) -   driver = com.mysql.jdbc.Driver
+2026-02-22 14:35:20,839 [main] INFO  (DfDataSourceHandler#prepare():80) -   url    = jdbc:mysql://localhost:43376/maihamadb?allowPublicKeyRetrieval=true&sslMode=DISABLED
+2026-02-22 14:35:20,839 [main] INFO  (DfDataSourceHandler#prepare():81) -   user   = maihamadb
+2026-02-22 14:35:20,850 [main] INFO  (DfSchemaXmlSerializer#serialize():305) - 
+2026-02-22 14:35:20,851 [main] INFO  (DfSchemaXmlSerializer#serialize():306) - ...Starting to process JDBC to SchemaXML
+2026-02-22 14:35:20,851 [main] INFO  (DfSchemaXmlSerializer#doLoadPreviousSchema():1559) - ...Loading previous schema (schema diff process)
+2026-02-22 14:35:20,854 [main] INFO  (DfSchemaXmlSerializer#doLoadPreviousSchema():1562) -  -> no previous (first time)
+2026-02-22 14:35:20,859 [main] INFO  (DfSchemaXmlSerializer#generateXML():379) - ...Getting DB connection
+2026-02-22 14:35:20,862 [main] INFO  (DfDataSourceHandler#createConnection():166) - ...Connecting to database by data source:
+2026-02-22 14:35:21,131 [main] INFO  (DfDataSourceHandler#setupConnectionMetaInfo():233) -   product = MySQL 8.0.45
+2026-02-22 14:35:21,132 [main] INFO  (DfDataSourceHandler#setupConnectionMetaInfo():234) -   driver  = MySQL Connector Java mysql-connector-java-5.1.49 ( Revision: ad86f36e100e104cd926c6b81c8cab9565750116 ) for JDBC 4.0
+2026-02-22 14:35:21,132 [main] INFO  (DfSchemaXmlSerializer#generateXML():382) - ...Getting DB meta data
+2026-02-22 14:35:21,133 [main] INFO  (DfTableExtractor#doGetTableList():66) - ...Getting tables:
+2026-02-22 14:35:21,134 [main] INFO  (DfTableExtractor#doGetTableList():67) -   schema = {maihamadb.$$NoNameSchema$$ as main}
+2026-02-22 14:35:21,134 [main] INFO  (DfTableExtractor#doGetTableList():68) -   types  = [TABLE, VIEW]
+2026-02-22 14:35:21,141 [main] INFO  (DfDbCommentExtractorBase#doSelectUserTabComments():121) - select table_type as OBJECT_TYPE, table_name as TABLE_NAME, table_comment as COMMENTS from information_schema.tables where table_schema = 'maihamadb' order by table_name asc
+2026-02-22 14:35:21,145 [main] INFO  (DfDbCommentExtractorBase#doSelectUserColComments():168) - select table_name as TABLE_NAME, column_name as COLUMN_NAME, column_comment as COMMENTS from information_schema.columns where table_schema = 'maihamadb' order by table_name asc, column_name asc
+2026-02-22 14:35:21,155 [main] INFO  (DfDatetimePrecisionExtractorMySQL#extractDatetimePrecisionMap():59) - select TABLE_NAME, COLUMN_NAME, DATETIME_PRECISION from INFORMATION_SCHEMA.COLUMNS where TABLE_SCHEMA = 'maihamadb' and DATA_TYPE = 'datetime'
+2026-02-22 14:35:21,164 [main] INFO  (DfSchemaXmlSerializer#processTable():438) - 
+2026-02-22 14:35:21,164 [main] INFO  (DfSchemaXmlSerializer#processTable():439) - $ /= = = = = = = = = = = = = = = = = = = = = = = = = =
+2026-02-22 14:35:21,164 [main] INFO  (DfSchemaXmlSerializer#processTable():440) - $ [Table List]
+2026-02-22 14:35:21,164 [main] INFO  (DfSchemaXmlSerializer#doProcessTable():520) - $ maihamadb.member(TABLE) // 会員: 会員登録時にデータが登録される。...
+2026-02-22 14:35:21,200 [main] INFO  (DfSchemaXmlSerializer#doProcessTable():520) - $ maihamadb.member_address(TABLE) // 会員住所情報: 会員の住所に関する情報。...
+2026-02-22 14:35:21,224 [main] INFO  (DfSchemaXmlSerializer#doProcessTable():520) - $ maihamadb.member_login(TABLE) // 会員ログイン情報: ログインするたびに登録されるログイン履歴。
+2026-02-22 14:35:21,243 [main] INFO  (DfSchemaXmlSerializer#doProcessTable():520) - $ maihamadb.member_security(TABLE) // 会員セキュリティ情報: 会員とは one-to-one で、会員一人につき必ず一つのセキュリティ情報がある
+2026-02-22 14:35:21,264 [main] INFO  (DfSchemaXmlSerializer#doProcessTable():520) - $ maihamadb.member_service(TABLE) // 会員サービス: 会員のサービス情報（ポイントサービスなど）。
+2026-02-22 14:35:21,282 [main] INFO  (DfSchemaXmlSerializer#doProcessTable():520) - $ maihamadb.member_status(TABLE) // 会員ステータス
+2026-02-22 14:35:21,298 [main] INFO  (DfSchemaXmlSerializer#doProcessTable():520) - $ maihamadb.member_withdrawal(TABLE) // 会員退会情報: 退会会員の退会に関する詳細な情報。...
+2026-02-22 14:35:21,316 [main] INFO  (DfSchemaXmlSerializer#doProcessTable():520) - $ maihamadb.product(TABLE) // 商品
+2026-02-22 14:35:21,334 [main] INFO  (DfSchemaXmlSerializer#doProcessTable():520) - $ maihamadb.product_category(TABLE) // 商品カテゴリ: 商品のカテゴリを表現するマスタ。...
+2026-02-22 14:35:21,346 [main] INFO  (DfSchemaXmlSerializer#doProcessTable():520) - $ maihamadb.product_status(TABLE) // 商品ステータス
+2026-02-22 14:35:21,354 [main] INFO  (DfSchemaXmlSerializer#doProcessTable():520) - $ maihamadb.purchase(TABLE) // 購入: 一つの商品に対する一回の購入を表現する。...
+2026-02-22 14:35:21,381 [main] INFO  (DfSchemaXmlSerializer#doProcessTable():520) - $ maihamadb.purchase_payment(TABLE) // 購入支払: 購入に対する支払。...
+2026-02-22 14:35:21,394 [main] INFO  (DfSchemaXmlSerializer#doProcessTable():520) - $ maihamadb.region(TABLE) // 地域: 主に会員の住所に対応する地域。...
+2026-02-22 14:35:21,406 [main] INFO  (DfSchemaXmlSerializer#doProcessTable():520) - $ maihamadb.service_rank(TABLE) // サービスランク: 会員のサービスレベルを表現するランク。...
+2026-02-22 14:35:21,416 [main] INFO  (DfSchemaXmlSerializer#doProcessTable():520) - $ maihamadb.withdrawal_reason(TABLE) // 退会理由: 会員に選ばせる定型的な退会理由のマスタ。
+2026-02-22 14:35:21,430 [main] INFO  (DfSchemaXmlSerializer#processTable():452) - $ 
+2026-02-22 14:35:21,430 [main] INFO  (DfSchemaXmlSerializer#processTable():453) - $ [Table Count]
+2026-02-22 14:35:21,430 [main] INFO  (DfSchemaXmlSerializer#processTable():454) - $ 15
+2026-02-22 14:35:21,430 [main] INFO  (DfSchemaXmlSerializer#processTable():455) - $ = = = = = = = = = =/
+2026-02-22 14:35:21,430 [main] INFO  (DfSchemaXmlSerializer#processTable():456) - 
+2026-02-22 14:35:21,431 [main] INFO  (DfSchemaXmlSerializer#processSequence():823) - ...Getting sequences
+2026-02-22 14:35:21,432 [main] INFO  (DfSchemaXmlSerializer#serialize():320) - ...Serializing XML:
+2026-02-22 14:35:21,432 [main] INFO  (DfSchemaXmlSerializer#serialize():321) -   filePath = ./schema/project-schema-maihamadb.xml
+2026-02-22 14:35:21,432 [main] INFO  (DfSchemaXmlSerializer#serialize():322) -   encoding = UTF-8
+2026-02-22 14:35:21,443 [main] INFO  (DfSchemaXmlSerializer#doLoadNextSchema():1570) - ...Loading next schema (schema diff process)
+2026-02-22 14:35:21,447 [main] INFO  (DTDResolver#resolveEntity():195) - ...Resolving XML by database.dtd in same package
+2026-02-22 14:35:21,523 [main] INFO  (DfSchemaXmlSerializer#doLoadNextSchema():1575) -  -> different from previous (schema diff)
+2026-02-22 14:35:21,523 [main] INFO  (DfSchemaXmlSerializer#doLoadNextSchema():1577) - ...Serializing schema-diff:
+2026-02-22 14:35:21,523 [main] INFO  (DfSchemaXmlSerializer#doLoadNextSchema():1578) -   filePath = ./schema/project-history-maihamadb.diffmap
+2026-02-22 14:35:21,529 [main] INFO  (DfDataSourceHandler#destroy():120) - ...closeReally()
+2026-02-22 14:35:21,533 [main] INFO  (DfDBFluteTaskUtil#logFinalMessage():139) - 
+_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/
+[Final Message]: 00m00s710ms
+
+  DBFLUTE_CLIENT: {maihamadb}
+    database  = mysql (MySQL 8.0.45)
+    language  = java
+    container = lasta_di
+    package   = org.docksidestage.handson.dbflute
+
+  DBFLUTE_ENVIRONMENT_TYPE: {}
+    driver = com.mysql.jdbc.Driver
+    url    = jdbc:mysql://localhost:43376/maihamadb?allowPublicKeyRetrieval=true&sslMode=DISABLED
+    schema = {maihamadb.$$NoNameSchema$$ as main}
+    user   = maihamadb
+    props  = {}
+    additionalSchema = 
+    repsEnvType      = ut
+    refreshProject   = $$AutoDetect$$
+_/_/_/_/_/_/_/_/_/_/ {JDBC}
+2026-02-22 14:36:05,640 [main] INFO  (TorqueDocumentationTask#begin():193) - +------------------------------------------+
+2026-02-22 14:36:05,641 [main] INFO  (TorqueDocumentationTask#begin():194) - |                                          |
+2026-02-22 14:36:05,641 [main] INFO  (TorqueDocumentationTask#begin():195) - |                   Doc                    |
+2026-02-22 14:36:05,641 [main] INFO  (TorqueDocumentationTask#begin():203) - |                                          |
+2026-02-22 14:36:05,642 [main] INFO  (TorqueDocumentationTask#begin():204) - +------------------------------------------+
+2026-02-22 14:36:05,650 [main] INFO  (DfDataSourceHandler#prepare():78) - ...Preparing data source:
+2026-02-22 14:36:05,650 [main] INFO  (DfDataSourceHandler#prepare():79) -   driver = com.mysql.jdbc.Driver
+2026-02-22 14:36:05,651 [main] INFO  (DfDataSourceHandler#prepare():80) -   url    = jdbc:mysql://localhost:43376/maihamadb?allowPublicKeyRetrieval=true&sslMode=DISABLED
+2026-02-22 14:36:05,651 [main] INFO  (DfDataSourceHandler#prepare():81) -   user   = maihamadb
+2026-02-22 14:36:05,652 [main] INFO  (TorqueDocumentationTask#processSchemaHtml():265) - 
+2026-02-22 14:36:05,652 [main] INFO  (TorqueDocumentationTask#processSchemaHtml():266) - * * * * * * * * * * *
+2026-02-22 14:36:05,652 [main] INFO  (TorqueDocumentationTask#processSchemaHtml():267) - *                   *
+2026-02-22 14:36:05,652 [main] INFO  (TorqueDocumentationTask#processSchemaHtml():268) - *    Schema HTML    *
+2026-02-22 14:36:05,652 [main] INFO  (TorqueDocumentationTask#processSchemaHtml():269) - *                   *
+2026-02-22 14:36:05,652 [main] INFO  (TorqueDocumentationTask#processSchemaHtml():270) - * * * * * * * * * * *
+2026-02-22 14:36:05,670 [main] INFO  (DTDResolver#resolveEntity():195) - ...Resolving XML by database.dtd in same package
+2026-02-22 14:36:05,707 [main] INFO  (DfAdditionalPrimaryKeyInitializer#initializeAdditionalPrimaryKey():62) - /=======================================
+2026-02-22 14:36:05,707 [main] INFO  (DfAdditionalPrimaryKeyInitializer#initializeAdditionalPrimaryKey():63) - ...Initializing additional primary keys.
+2026-02-22 14:36:05,707 [main] INFO  (DfAdditionalPrimaryKeyInitializer#initializeAdditionalPrimaryKey():88) - ==========/
+2026-02-22 14:36:05,708 [main] INFO  (DfAdditionalUniqueKeyInitializer#initializeAdditionalUniqueKey():62) - /=======================================
+2026-02-22 14:36:05,708 [main] INFO  (DfAdditionalUniqueKeyInitializer#initializeAdditionalUniqueKey():63) - ...Initializing additional unique keys.
+2026-02-22 14:36:05,709 [main] INFO  (DfAdditionalUniqueKeyInitializer#initializeAdditionalUniqueKey():83) - ==========/
+2026-02-22 14:36:05,709 [main] INFO  (DfAdditionalForeignKeyInitializer#initializeAdditionalForeignKey():68) - /=======================================
+2026-02-22 14:36:05,709 [main] INFO  (DfAdditionalForeignKeyInitializer#initializeAdditionalForeignKey():69) - ...Initializing additional foreign keys.
+2026-02-22 14:36:05,710 [main] INFO  (DfAdditionalForeignKeyInitializer#initializeAdditionalForeignKey():88) - ==========/
+2026-02-22 14:36:05,715 [main] INFO  (DfClsDeploymentInitializer#initializeClassificationDeployment():67) - ...Initializing ClassificationDeployment: project=maihamadb
+2026-02-22 14:36:05,734 [main] INFO  (DfAbstractTexenTask#fireVelocityProcess():253) - generator.parse("doc/ControlDocument.vm", ctx);
+2026-02-22 14:36:05,738 [main] INFO  (DfFlutistLog4JLogSystem#init():45) - ...Suppressing velocity.log, which is unneeded for also debug
+2026-02-22 14:36:05,781 [main] INFO  (Database#doEnableDocumentOutputDirectory():1241) - ...Setting up documentOutputDirectory: ./output/doc
+2026-02-22 14:36:05,784 [main] INFO  (DfDocumentSelector#doLoadSchemaHistory():242) - ...Loading schema history
+2026-02-22 14:36:05,794 [main] INFO  (DfDocumentSelector#doLoadSchemaHistory():246) -  -> found history: count=1
+2026-02-22 14:36:05,814 [main] INFO  (DfSchemaHtmlDataArrangeQuery#getArrangeQueryTableMap():50) -  
+2026-02-22 14:36:05,814 [main] INFO  (DfSchemaHtmlDataArrangeQuery#getArrangeQueryTableMap():51) - ...Setting up arrange queries for documents (ArrangeQueryDoc)
+2026-02-22 14:36:05,822 [main] INFO  (DfArrangeQueryDocSetupper#doExtractArrangeQuery():106) -  -> no arrange query
+2026-02-22 14:36:05,937 [main] INFO  (DfRefreshResourceProcess#show():295) - /===========================================================================
+2026-02-22 14:36:05,938 [main] INFO  (DfRefreshResourceProcess#show():295) - ...Refreshing [dbflute-hands-on] by http://localhost:8386/
+2026-02-22 14:36:05,953 [main] INFO  (DfRefreshResourceProcess#show():295) - ...Retrying refreshing by default secondary URL http://localhost:8387/
+2026-02-22 14:36:05,954 [main] INFO  (DfRefreshResourceProcess#show():295) - Failed to refresh the resources (continued): url=http://localhost:8386/, cause=ConnectException(Connection refused)
+2026-02-22 14:36:05,954 [main] INFO  (DfRefreshResourceProcess#show():295) - ==========/
+2026-02-22 14:36:05,955 [main] INFO  (DfDBFluteTaskUtil#logFinalMessage():139) - 
+_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/
+[Final Message]: 00m00s319ms
+
+  DBFLUTE_CLIENT: {maihamadb}
+    database  = mysql
+    language  = java
+    container = lasta_di
+    package   = org.docksidestage.handson.dbflute
+
+  DBFLUTE_ENVIRONMENT_TYPE: {}
+    driver = com.mysql.jdbc.Driver
+    url    = jdbc:mysql://localhost:43376/maihamadb?allowPublicKeyRetrieval=true&sslMode=DISABLED
+    schema = {maihamadb.$$NoNameSchema$$ as main}
+    user   = maihamadb
+    props  = {}
+    additionalSchema = 
+    repsEnvType      = ut
+    refreshProject   = $$AutoDetect$$
+_/_/_/_/_/_/_/_/_/_/ {Doc}
+2026-02-22 14:36:15,574 [main] INFO  (TorqueDataModelTask#begin():110) - +------------------------------------------+
+2026-02-22 14:36:15,574 [main] INFO  (TorqueDataModelTask#begin():111) - |                                          |
+2026-02-22 14:36:15,575 [main] INFO  (TorqueDataModelTask#begin():112) - |                 Generate                 |
+2026-02-22 14:36:15,575 [main] INFO  (TorqueDataModelTask#begin():113) - |                                          |
+2026-02-22 14:36:15,575 [main] INFO  (TorqueDataModelTask#begin():114) - +------------------------------------------+
+2026-02-22 14:36:15,583 [main] INFO  (DfDataSourceHandler#prepare():78) - ...Preparing data source:
+2026-02-22 14:36:15,583 [main] INFO  (DfDataSourceHandler#prepare():79) -   driver = com.mysql.jdbc.Driver
+2026-02-22 14:36:15,583 [main] INFO  (DfDataSourceHandler#prepare():80) -   url    = jdbc:mysql://localhost:43376/maihamadb?allowPublicKeyRetrieval=true&sslMode=DISABLED
+2026-02-22 14:36:15,583 [main] INFO  (DfDataSourceHandler#prepare():81) -   user   = maihamadb
+2026-02-22 14:36:15,588 [main] INFO  (TorqueDataModelTask#setupControlTemplate():166) - 
+2026-02-22 14:36:15,589 [main] INFO  (TorqueDataModelTask#setupControlTemplate():167) - ...Using Java control: om/ControlGenerateJava.vm
+2026-02-22 14:36:15,601 [main] INFO  (DTDResolver#resolveEntity():195) - ...Resolving XML by database.dtd in same package
+2026-02-22 14:36:15,637 [main] INFO  (DfAbstractTexenTask#fireVelocityProcess():253) - generator.parse("om/ControlGenerateJava.vm", ctx);
+2026-02-22 14:36:15,641 [main] INFO  (DfFlutistLog4JLogSystem#init():45) - ...Suppressing velocity.log, which is unneeded for also debug
+2026-02-22 14:36:15,707 [main] INFO  (Database#doEnableGenerateOutputDirectory():1209) - ...Setting up generateOutputDirectory: ../src/main/java
+2026-02-22 14:36:15,709 [main] INFO  (DfAdditionalPrimaryKeyInitializer#initializeAdditionalPrimaryKey():62) - /=======================================
+2026-02-22 14:36:15,709 [main] INFO  (DfAdditionalPrimaryKeyInitializer#initializeAdditionalPrimaryKey():63) - ...Initializing additional primary keys.
+2026-02-22 14:36:15,709 [main] INFO  (DfAdditionalPrimaryKeyInitializer#initializeAdditionalPrimaryKey():88) - ==========/
+2026-02-22 14:36:15,710 [main] INFO  (DfAdditionalUniqueKeyInitializer#initializeAdditionalUniqueKey():62) - /=======================================
+2026-02-22 14:36:15,710 [main] INFO  (DfAdditionalUniqueKeyInitializer#initializeAdditionalUniqueKey():63) - ...Initializing additional unique keys.
+2026-02-22 14:36:15,710 [main] INFO  (DfAdditionalUniqueKeyInitializer#initializeAdditionalUniqueKey():83) - ==========/
+2026-02-22 14:36:15,711 [main] INFO  (DfAdditionalForeignKeyInitializer#initializeAdditionalForeignKey():68) - /=======================================
+2026-02-22 14:36:15,711 [main] INFO  (DfAdditionalForeignKeyInitializer#initializeAdditionalForeignKey():69) - ...Initializing additional foreign keys.
+2026-02-22 14:36:15,711 [main] INFO  (DfAdditionalForeignKeyInitializer#initializeAdditionalForeignKey():88) - ==========/
+2026-02-22 14:36:15,716 [main] INFO  (DfClsDeploymentInitializer#initializeClassificationDeployment():67) - ...Initializing ClassificationDeployment: project=maihamadb
+2026-02-22 14:36:15,718 [main] INFO  (DfIncludeQueryInitializer#initializeIncludeQuery():58) - /=============================
+2026-02-22 14:36:15,718 [main] INFO  (DfIncludeQueryInitializer#initializeIncludeQuery():59) - ...Initializing include query.
+2026-02-22 14:36:15,718 [main] INFO  (DfIncludeQueryInitializer#checkQueryMap():81) - String
+2026-02-22 14:36:15,718 [main] INFO  (DfIncludeQueryInitializer#checkQueryMap():81) - Number
+2026-02-22 14:36:15,718 [main] INFO  (DfIncludeQueryInitializer#checkQueryMap():81) - Date
+2026-02-22 14:36:15,718 [main] INFO  (DfIncludeQueryInitializer#checkQueryMap():86) -   NotEqual -> []
+2026-02-22 14:36:15,719 [main] INFO  (DfIncludeQueryInitializer#checkQueryMap():86) -   InScope -> []
+2026-02-22 14:36:15,719 [main] INFO  (DfIncludeQueryInitializer#checkQueryMap():86) -   NotInScope -> []
+2026-02-22 14:36:15,719 [main] INFO  (DfIncludeQueryInitializer#checkQueryMap():81) - OrderBy
+2026-02-22 14:36:15,719 [main] INFO  (DfIncludeQueryInitializer#initializeIncludeQuery():61) - ========/
+2026-02-22 14:36:15,723 [main] INFO  (Database#info():2872) - public void parseAllCommon() {
+2026-02-22 14:36:15,725 [main] INFO  (Database#info():2872) -     parse('DBCurrent');
+2026-02-22 14:36:15,727 [main] INFO  (Database#info():2872) -     parse('DBFluteConfig');
+2026-02-22 14:36:15,734 [main] INFO  (Database#info():2872) -     parse('DBFluteInitializer');
+2026-02-22 14:36:15,737 [main] INFO  (Database#info():2872) -     parse('DBMetaInstanceHandler');
+2026-02-22 14:36:15,745 [main] INFO  (Database#info():2872) -     parse('EntityDefinedCommonColumn');
+2026-02-22 14:36:15,747 [main] INFO  (Database#info():2872) -     parse('ImplementedBehaviorSelector');
+2026-02-22 14:36:15,749 [main] INFO  (Database#info():2872) -     parse('ImplementedCommonColumnAutoSetupper');
+2026-02-22 14:36:15,751 [main] INFO  (Database#info():2872) -     parse('ImplementedInvokerAssistant');
+2026-02-22 14:36:15,755 [main] INFO  (Database#info():2872) -     parse('ImplementedSqlClauseCreator');
+2026-02-22 14:36:15,756 [main] INFO  (Database#info():2872) - }
+2026-02-22 14:36:15,757 [main] INFO  (Database#info():2872) - public void parseContainerConfig() {
+2026-02-22 14:36:15,757 [main] INFO  (Database#info():2872) -     parse('../resources/dbflute.xml')
+2026-02-22 14:36:15,762 [main] INFO  (Database#info():2872) - }
+2026-02-22 14:36:15,764 [main] INFO  (DfOldClassHandler#info():1045) - public void deleteOldTableClass() {
+2026-02-22 14:36:15,772 [main] INFO  (DfOldClassHandler#info():1045) - }
+2026-02-22 14:36:15,773 [main] INFO  (Database#info():2872) - public void parseTableClass() {
+2026-02-22 14:36:15,773 [main] INFO  (Database#info():2872) -     parse('member');
+2026-02-22 14:36:15,923 [main] INFO  (Database#info():2872) -     parse('member_address');
+2026-02-22 14:36:15,992 [main] INFO  (Database#info():2872) -     parse('member_login');
+2026-02-22 14:36:16,043 [main] INFO  (Database#info():2872) -     parse('member_security');
+2026-02-22 14:36:16,091 [main] INFO  (Database#info():2872) -     parse('member_service');
+2026-02-22 14:36:16,139 [main] INFO  (Database#info():2872) -     parse('member_status');
+2026-02-22 14:36:16,184 [main] INFO  (Database#info():2872) -     parse('member_withdrawal');
+2026-02-22 14:36:16,240 [main] INFO  (Database#info():2872) -     parse('product');
+2026-02-22 14:36:16,298 [main] INFO  (Database#info():2872) -     parse('product_category');
+2026-02-22 14:36:16,342 [main] INFO  (Database#info():2872) -     parse('product_status');
+2026-02-22 14:36:16,373 [main] INFO  (Database#info():2872) -     parse('purchase');
+2026-02-22 14:36:16,425 [main] INFO  (Database#info():2872) -     parse('purchase_payment');
+2026-02-22 14:36:16,506 [main] INFO  (Database#info():2872) -     parse('region');
+2026-02-22 14:36:16,539 [main] INFO  (Database#info():2872) -     parse('service_rank');
+2026-02-22 14:36:16,577 [main] INFO  (Database#info():2872) -     parse('withdrawal_reason');
+2026-02-22 14:36:16,617 [main] INFO  (Database#info():2872) - }
+2026-02-22 14:36:16,621 [main] INFO  (Database#info():2872) -  
+2026-02-22 14:36:16,659 [main] INFO  (DfRefreshResourceProcess#show():295) - /===========================================================================
+2026-02-22 14:36:16,659 [main] INFO  (DfRefreshResourceProcess#show():295) - ...Refreshing [dbflute-hands-on] by http://localhost:8386/
+2026-02-22 14:36:16,678 [main] INFO  (DfRefreshResourceProcess#show():295) - ...Retrying refreshing by default secondary URL http://localhost:8387/
+2026-02-22 14:36:16,678 [main] INFO  (DfRefreshResourceProcess#show():295) - Failed to refresh the resources (continued): url=http://localhost:8386/, cause=ConnectException(Connection refused)
+2026-02-22 14:36:16,678 [main] INFO  (DfRefreshResourceProcess#show():295) - ==========/
+2026-02-22 14:36:16,680 [main] INFO  (DfDBFluteTaskUtil#logFinalMessage():139) - 
+_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/
+[Final Message]: 00m01s110ms
+
+  DBFLUTE_CLIENT: {maihamadb}
+    database  = mysql
+    language  = java
+    container = lasta_di
+    package   = org.docksidestage.handson.dbflute
+
+  DBFLUTE_ENVIRONMENT_TYPE: {}
+    driver = com.mysql.jdbc.Driver
+    url    = jdbc:mysql://localhost:43376/maihamadb?allowPublicKeyRetrieval=true&sslMode=DISABLED
+    schema = {maihamadb.$$NoNameSchema$$ as main}
+    user   = maihamadb
+    props  = {}
+    additionalSchema = 
+    repsEnvType      = ut
+    refreshProject   = $$AutoDetect$$
+_/_/_/_/_/_/_/_/_/_/ {Generate}

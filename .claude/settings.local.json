@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(find /Users/h.edo/DB_flute_hands_on/src/main/java -type f -name \"*.java\" 2>/dev/null | head -30)",
+      "Bash(find /Users/h.edo/DB_flute_hands_on -name \"*.java\" -type f 2>/dev/null | head -20)",
+      "Bash(cd /Users/h.edo/DB_flute_hands_on/dbflute_maihamadb/playsql && unzip -o /Users/h.edo/DB_flute_hands_on/tutorial/material/dbflute/playsql-loaddata-common.zip)",
+      "Bash(cd /Users/h.edo/DB_flute_hands_on/dbflute_maihamadb/playsql && unzip -o /Users/h.edo/DB_flute_hands_on/tutorial/material/dbflute/playsql-loaddata-ut.zip)",
+      "Bash(open /Users/h.edo/DB_flute_hands_on/dbflute_maihamadb/output/doc/schema-maihamadb.html)"
+    ]
+  }
+}
