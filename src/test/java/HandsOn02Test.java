@@ -11,7 +11,24 @@
 // なので、すでに追加されているdbflute.logは変わらずまだgit管理になる。
 // なのでなので、dbflute.logは明示的に削除コミットをしてあげないといけない。
 
-public class HandsOn02Test {
+import javax.annotation.Resource;
+
+import org.docksidestage.handson.dbflute.exbhv.MemberBhv;
+import org.docksidestage.handson.unit.UnitContainerTestCase;
+
+public class HandsOn02Test extends UnitContainerTestCase {
     // よくわからないが、UnitContainerTestCase を継承する時に使うらしいので作っておく
     // section2が何も進んでおらずそれぞれのファイルの役割などがあまり理解できていないため解説していただけると助かります
+    
+    @Resource
+    private MemberBhv memberBhv;
+    
+    public void test_existsTestData() throws Exception {
+        // Arrange
+        // Act
+        int count = memberBhv.selectCount(cb -> {});
+        // Assert
+        assertTrue(count > 0);
+    }
 }
+;
