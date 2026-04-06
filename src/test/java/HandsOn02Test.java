@@ -19,7 +19,13 @@ import org.docksidestage.handson.unit.UnitContainerTestCase;
 public class HandsOn02Test extends UnitContainerTestCase {
     // よくわからないが、UnitContainerTestCase を継承する時に使うらしいので作っておく
     // section2が何も進んでおらずそれぞれのファイルの役割などがあまり理解できていないため解説していただけると助かります
-    
+    //0330修正メモ：dbflute_maihamadb/playsql/data/ut/reversetsv/UTF-8/defaultValueMap.datapropファイルの命名が
+    //efaultValueMap.dataprop.tsvになっていたため修正。
+    //命名してもなかなかテストが通らないなと思ったらReplaceSchemaができていなかった
+    //ReplaceSchemaの役割がよくわかっていない。
+    //defaultValueMap.datapropファイルがDBを入れる時の手順書みたいなもので、ReplaceSchemaがその手順書に沿って
+    //データを入れ直すイメージ？？
+
     @Resource
     private MemberBhv memberBhv;
     
