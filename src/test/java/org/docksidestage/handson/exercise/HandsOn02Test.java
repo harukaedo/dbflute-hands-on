@@ -63,5 +63,29 @@ public class HandsOn02Test extends UnitContainerTestCase {
         // Assert
         assertTrue(count > 0);
     }
+
+    /*
+    問題１
+    会員名称がSで始まる会員を検索 (これはタイトル、この中にも要件が含まれている)
+    会員名称の昇順で並べる (これは実装要件、Arrange or Act でこの通りに実装すること)
+    (検索結果の)会員名称がSで始まっていることをアサート (これはアサート要件、Assert でこの通りに実装すること)
+    "該当テストデータなし" や "条件間違い" 素通りgreenにならないように素通り防止を (今後ずっと同じ)
+     */
+    //これをみながらやるmemo
+    //https://dbflute.seasar.org/ja/manual/function/ormapper/conditionbean/howto.html
+    //0420メモ
+    //ConditionBeanの役割が理解できておらずなかなか進めないので役割などを教えていただけると助かります🙏
+    //
+    public void test_member_name_start_s() throws Exception {
+        // Arrange
+        //ここで始まる言葉を先に定義しておきたい。
+        String start = "S";
+
+        // Act
+        //ここで検索条件を指定したい
+
+        // Assert
+        //for文とかでぐるぐる回して会員を引っこ抜いていきたい
+    }
 }
 ;
