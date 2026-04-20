@@ -1,3 +1,4 @@
+package org.docksidestage.handson.exercise;
 
 // #1on1: packageのお話をした。packageを作って配置しましょう (2026/03/13)
 // #1on1: docksidestage のお話。 (2026/04/10)
@@ -17,9 +18,12 @@ import javax.annotation.Resource;
 import org.docksidestage.handson.dbflute.exbhv.MemberBhv;
 import org.docksidestage.handson.unit.UnitContainerTestCase;
 
-// TODO edo このテストクラスのpackageが、default package になってしまっているので... by jflute (2026/04/10)
+// TODO done edo このテストクラスのpackageが、default package になってしまっているので... by jflute (2026/04/10)
 // org.docksidestage.handson.exercise.HandsOn02Test になるようにしましょう。
 // (つまり、org.docksidestage.handson.exercise という package に移動する)
+
+//0420修正メモ：
+//src/test/java/org/docksidestage/handson/exerciseを作成し、引っ越ししました
 
 public class HandsOn02Test extends UnitContainerTestCase {
     // よくわからないが、UnitContainerTestCase を継承する時に使うらしいので作っておく
