@@ -18,13 +18,14 @@ import javax.annotation.Resource;
 import org.docksidestage.handson.dbflute.exbhv.MemberBhv;
 import org.docksidestage.handson.unit.UnitContainerTestCase;
 
-// TODO done edo このテストクラスのpackageが、default package になってしまっているので... by jflute (2026/04/10)
+// done edo このテストクラスのpackageが、default package になってしまっているので... by jflute (2026/04/10)
 // org.docksidestage.handson.exercise.HandsOn02Test になるようにしましょう。
 // (つまり、org.docksidestage.handson.exercise という package に移動する)
 
 //0420修正メモ：
 //src/test/java/org/docksidestage/handson/exerciseを作成し、引っ越ししました
 
+// TODO edo JavaDoc, javatryと同じようにauthorだけでもいいのでお願いします by jflute (2026/04/26)
 public class HandsOn02Test extends UnitContainerTestCase {
     // よくわからないが、UnitContainerTestCase を継承する時に使うらしいので作っておく
     // section2が何も進んでおらずそれぞれのファイルの役割などがあまり理解できていないため解説していただけると助かります
@@ -75,6 +76,17 @@ public class HandsOn02Test extends UnitContainerTestCase {
     //https://dbflute.seasar.org/ja/manual/function/ormapper/conditionbean/howto.html
     //0420メモ
     //ConditionBeanの役割が理解できておらずなかなか進めないので役割などを教えていただけると助かります🙏
+    //
+    // TODO edo [ふぉろー] ConditionBeanは、「条件 condition」を司るオブジェクトということで... by jflute (2026/04/26)
+    // 「会員名称がSで始まる会員を検索」
+    // ...な会員を検索 → memberBhv.selectList(...) // Behaviorが検索の入り口 (取得形式を指定、一覧？一件？)
+    // 会員名称がSで始まる会員 → cb.query().setMemberName... // SQLで言うとwhere句
+    // 会員名称の昇順で並べる → cb.query().addOrderBy...     // SQLで言うとorder by句
+    //
+    // 1. 基点テーブル何か？                // Behaviorを選ぶ
+    // 2. 一件検索なのか？リスト検索なのか？   // Behaviorのメソッドを選ぶ
+    // 3. 取得したい関連テーブルは何か？      // ConditionBeanでsetupSelect
+    // 4. どんな絞り込み、並び替えをしたいか？ // ConditionBeanでquery()
     //
     public void test_member_name_start_s() throws Exception {
         // Arrange
