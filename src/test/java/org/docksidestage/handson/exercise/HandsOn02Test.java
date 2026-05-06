@@ -15,8 +15,14 @@ package org.docksidestage.handson.exercise;
 
 import javax.annotation.Resource;
 
+import org.dbflute.cbean.result.ListResultBean;
 import org.docksidestage.handson.dbflute.exbhv.MemberBhv;
+import org.docksidestage.handson.dbflute.exentity.Member;
 import org.docksidestage.handson.unit.UnitContainerTestCase;
+
+/**
+ * @author harukaedo
+ */
 
 // done edo このテストクラスのpackageが、default package になってしまっているので... by jflute (2026/04/10)
 // org.docksidestage.handson.exercise.HandsOn02Test になるようにしましょう。
@@ -92,12 +98,27 @@ public class HandsOn02Test extends UnitContainerTestCase {
         // Arrange
         //ここで始まる言葉を先に定義しておきたい。
         String start = "S";
-
+        
         // Act
         //ここで検索条件を指定したい
+        //memo
+        // protected static final String LIKE_PREFIX = "prefix";最初
+        // protected static final String LIKE_SUFFIX = "suffix";最後
+        // protected static final String LIKE_CONTAIN = "contain";含む
+        ListResultBean<Member> memberList = memberBhv.selectList(cb -> {
+            cb.query().setMemberName_LikeSearch(start, op -> op.likePrefix());
+            cb.query().addOrderBy_MemberName_Asc();
+        });
 
         // Assert
         //for文とかでぐるぐる回して会員を引っこ抜いていきたい
+        assertFalse(memberList.isEmpty());//リストが空じゃないかをチェックしてくれる
+        for (Member member : memberList) {
+            String memberName = member.getMemberName();
+            log(memberName);
+            assertTrue(memberName.startsWith(start));   
+        }
+        //Savicevic,Stankovic,Stojkovic,Suker
     }
 }
 ;
