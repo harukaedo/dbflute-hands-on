@@ -102,17 +102,49 @@ public class HandsOn02Test extends UnitContainerTestCase {
         // Act
         //ここで検索条件を指定したい
         //memo
-        // protected static final String LIKE_PREFIX = "prefix";最初
-        // protected static final String LIKE_SUFFIX = "suffix";最後
-        // protected static final String LIKE_CONTAIN = "contain";含む
+        // protected static final String LIKE_PREFIX = "prefix";最初 → 前方一致検索
+        // protected static final String LIKE_SUFFIX = "suffix";最後 → 後方一致検索
+        // protected static final String LIKE_CONTAIN = "contain";含む → 部分一致検索
         ListResultBean<Member> memberList = memberBhv.selectList(cb -> {
+        	// #1on1: 3. 取得したい関連テーブルは何か？ (2026/05/08)
+        	// 世の中のデータ通信のお話。海底ケーブルも。無駄にデータを取りたくない。なので選択する。
+        	//cb.setupSelect_MemberStatus(); // 関連テーブルの会員ステータスも一緒に取得してくる
+        	//cb.setupSelect_MemberSecurityAsOne(); // 関連テーブルの会員セキュリティも一緒に取得してくる
+
+        	// #1on1: orって使うのか？ (2026/05/08)
+        	// dfloc.MEMBER_ACCOUNT = 'Pixy' and ( B or C ) 
+        	// A かつ B (B1 もしくは B2) かつ C (C1 もしくは C2)
+        	// Javaだと if (A && (B1 || B2) && (C1 || C2)) {
+        	/*
+        	cb.query().setMemberAccount_Equal("Pixy");
+        	cb.orScopeQuery(orCB -> {
+				orCB.query().setMemberName_LikeSearch(start, op -> op.likePrefix());
+				orCB.query().setBirthdate_IsNotNull();
+			});
+			*/
+        	// #1on1: あいまい検索のお話。SQLで言うと、likeという演算子を使う dfloc.MEMBER_NAME like 'S%' (2026/05/08)
             cb.query().setMemberName_LikeSearch(start, op -> op.likePrefix());
+            
+            // #1on1: Notもあるよ (2026/05/08)
+            //cb.query().setBirthdate_NotEqual("...");
+
+            // #1on1: 2個目の絞り込み条件を指定すると、デフォルトでは and (かつ) になる。 (2026/05/08)
+            //cb.query().setBirthdate_IsNotNull();
+            
+            // #1on1: order by: order by dfloc.MEMBER_NAME asc (2026/05/08)
+            // asc:昇順、desc: 降順
             cb.query().addOrderBy_MemberName_Asc();
         });
+        // #1on1: 一番大事なのは検索のイメージを頭の中で持つこと (2026/05/08)
+        // どんな検索をしたいのか？を抽象的に捉えることができたら、後はSQLだったりCBだったり置き換えるだけ。
+        // 「そもそも何をやりたいのか？ってのはツールとは無関係の世界で整理整頓できるはず」
 
         // Assert
         //for文とかでぐるぐる回して会員を引っこ抜いていきたい
+
+        // #1on1: テストデータがちゃんと用意されていることをチェックしている (2026/05/08)
         assertFalse(memberList.isEmpty());//リストが空じゃないかをチェックしてくれる
+
         for (Member member : memberList) {
             String memberName = member.getMemberName();
             log(memberName);
