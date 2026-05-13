@@ -152,5 +152,60 @@ public class HandsOn02Test extends UnitContainerTestCase {
         }
         //Savicevic,Stankovic,Stojkovic,Suker
     }
+
+    /*  
+    問題２
+    会員IDが1の会員を検索
+    一件検索として検索すること
+    会員IDが 1 であることをアサート
+    */
+    public void test_member_id_1() throws Exception {
+       // Arrange
+    //指定したい会員idは何なのかを定義する。
+    int memberId = 1;
+
+       // Act
+       //検索条件の指定。
+       //一件検索なので、selectEntityWithDeletedCheckを使う。
+    
+    Member member = memberBhv.selectEntityWithDeletedCheck(cb -> {
+        cb.query().setMemberId_Equal(memberId);
+    });
+       // Assert
+    assertEquals(memberId, member.getMemberId());
+    }
+
+    //memo
+    //selectEntityとselectEntityWithDeletedCheckの違い
+    //selectEntityは、条件に合うものがなかったらnullを返す
+    //selectEntityWithDeletedCheckは、条件に合うものがなかったら例外を投げる
+    //今回の問題ではどっちを使うのが良いのかがあまり理解できていない。
+    //会員IDという概念は存在するはずだから例外を投げてあげるほうが親切？
+
+    /*
+    生年月日がない会員を検索
+    更新日時の降順で並べる
+    生年月日がないことをアサート
+     */
+    public void test_birthdate_is_null() throws Exception {
+        // Arrange
+        //nullであればいいかを確認したいので特に定義はしなくても良さそう
+
+        // Act
+        //複数件検索なので、selectListを使う。
+        //生年月日がない会員を検索 → cb.query().setBirthdate_IsNull();
+        //更新日時の降順で並べる → cb.query().addOrderBy_UpdateDatetime_Desc();
+        ListResultBean<Member> memberList = memberBhv.selectList(cb -> {
+            cb.query().setBirthdate_IsNull();
+            cb.query().addOrderBy_UpdateDatetime_Desc();
+        });
+
+        // Assert
+        //for文とかでぐるぐる回して会員を引っこ抜いていきたい
+        assertFalse(memberList.isEmpty());
+
+        for (Member member : memberList) {
+            assertNull(member.getBirthdate());
+        }
+    }
 }
-;
