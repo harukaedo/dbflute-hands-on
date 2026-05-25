@@ -83,7 +83,7 @@ public class HandsOn02Test extends UnitContainerTestCase {
     //0420メモ
     //ConditionBeanの役割が理解できておらずなかなか進めないので役割などを教えていただけると助かります🙏
     //
-    // TODO edo [ふぉろー] ConditionBeanは、「条件 condition」を司るオブジェクトということで... by jflute (2026/04/26)
+    // done edo [ふぉろー] ConditionBeanは、「条件 condition」を司るオブジェクトということで... by jflute (2026/04/26)
     // 「会員名称がSで始まる会員を検索」
     // ...な会員を検索 → memberBhv.selectList(...) // Behaviorが検索の入り口 (取得形式を指定、一覧？一件？)
     // 会員名称がSで始まる会員 → cb.query().setMemberName... // SQLで言うとwhere句
@@ -160,28 +160,40 @@ public class HandsOn02Test extends UnitContainerTestCase {
     会員IDが 1 であることをアサート
     */
     public void test_member_id_1() throws Exception {
-       // Arrange
-    //指定したい会員idは何なのかを定義する。
-    int memberId = 1;
+        // Arrange
+	    //指定したい会員idは何なのかを定義する。
+	    int memberId = 1;
+	
+        // Act
+        //検索条件の指定。
+        //一件検索なので、selectEntityWithDeletedCheckを使う。
+	    Member member = memberBhv.selectEntityWithDeletedCheck(cb -> {
+	        cb.query().setMemberId_Equal(memberId);
+	    });
 
-       // Act
-       //検索条件の指定。
-       //一件検索なので、selectEntityWithDeletedCheckを使う。
-    
-    Member member = memberBhv.selectEntityWithDeletedCheck(cb -> {
-        cb.query().setMemberId_Equal(memberId);
-    });
-       // Assert
-    assertEquals(memberId, member.getMemberId());
+        // Assert
+	    assertEquals(memberId, member.getMemberId());
     }
 
     //memo
     //selectEntityとselectEntityWithDeletedCheckの違い
-    //selectEntityは、条件に合うものがなかったらnullを返す
+    //selectEntityは、条件に合うものがなかったらnullを返す ← これはOptionalの間違い
     //selectEntityWithDeletedCheckは、条件に合うものがなかったら例外を投げる
     //今回の問題ではどっちを使うのが良いのかがあまり理解できていない。
     //会員IDという概念は存在するはずだから例外を投げてあげるほうが親切？
+    
+    // #1on1: このテストの状況で言うと、1番の会員がテストデータにないとか困るので... (2026/05/19)
+    // 必ず存在すること前提で検索しても良いでしょう。なので、万が一なかったら例外で落ちてもいい。
+    // つまり、例外投げる系のメソッドは、「必ず存在すること前提」のときに使うもの
+    
+    // ちなみに、selectEntityはnullではなく、Optionalを戻す。
+    // javatryのstep8のOptionalをやってからフォローしましょう。
+    // (厳密には古いDBFluteのバージョンだとnullだったけど、今はOptionalになっている)
+    // 少しだけTypeScriptのunion型による「ないかもしれない表現」の話をつなげてみた。
+    
+    // DBFlute Introのご紹介
 
+    // TODO jflute 次回ここから (2026/05/19)
     /*
     生年月日がない会員を検索
     更新日時の降順で並べる
