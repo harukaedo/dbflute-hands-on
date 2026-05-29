@@ -20,9 +20,6 @@ import org.docksidestage.handson.dbflute.exbhv.MemberBhv;
 import org.docksidestage.handson.dbflute.exentity.Member;
 import org.docksidestage.handson.unit.UnitContainerTestCase;
 
-/**
- * @author harukaedo
- */
 
 // done edo このテストクラスのpackageが、default package になってしまっているので... by jflute (2026/04/10)
 // org.docksidestage.handson.exercise.HandsOn02Test になるようにしましょう。
@@ -31,7 +28,10 @@ import org.docksidestage.handson.unit.UnitContainerTestCase;
 //0420修正メモ：
 //src/test/java/org/docksidestage/handson/exerciseを作成し、引っ越ししました
 
-// TODO edo JavaDoc, javatryと同じようにauthorだけでもいいのでお願いします by jflute (2026/04/26)
+// done edo JavaDoc, javatryと同じようにauthorだけでもいいのでお願いします by jflute (2026/04/26)
+/**
+ * @author harukaedo
+ */
 public class HandsOn02Test extends UnitContainerTestCase {
     // よくわからないが、UnitContainerTestCase を継承する時に使うらしいので作っておく
     // section2が何も進んでおらずそれぞれのファイルの役割などがあまり理解できていないため解説していただけると助かります
@@ -193,7 +193,7 @@ public class HandsOn02Test extends UnitContainerTestCase {
     
     // DBFlute Introのご紹介
 
-    // TODO jflute 次回ここから (2026/05/19)
+    // done jflute 次回ここから (2026/05/19)
     /*
     生年月日がない会員を検索
     更新日時の降順で並べる
