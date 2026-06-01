@@ -3,13 +3,17 @@ package org.docksidestage.handson.exercise;
 
 
 import java.time.LocalDate;
+import java.util.HashSet;
+import java.util.Set;
 
 import javax.annotation.Resource;
 
 import org.dbflute.cbean.result.ListResultBean;
 import org.dbflute.optional.OptionalEntity;
 import org.docksidestage.handson.dbflute.exbhv.MemberBhv;
+import org.docksidestage.handson.dbflute.exbhv.MemberSecurityBhv;
 import org.docksidestage.handson.dbflute.exentity.Member;
+import org.docksidestage.handson.dbflute.exentity.MemberSecurity;
 import org.docksidestage.handson.dbflute.exentity.MemberStatus;
 import org.docksidestage.handson.unit.UnitContainerTestCase;
 
@@ -20,6 +24,8 @@ public class HandsOn03Test extends UnitContainerTestCase {
     
     @Resource
     private MemberBhv memberBhv;
+    @Resource
+    private MemberSecurityBhv memberSecurityBhv;
 
     /*
     Silverストレッチ①
@@ -34,7 +40,10 @@ public class HandsOn03Test extends UnitContainerTestCase {
         String prefix = "S";
         // #1on1: 1968/1/1 自体が birthdate そのものか？話 (2026/05/29)
         // 概念力の話。遵守性は高い方が良いですよ。
-        LocalDate birthdate = LocalDate.of(1968, 1, 1);
+        //0601修正メモ
+        //検索の起点となる生年月日なので命名を少し変える
+        //birthdateからtargetBirthdateに変える。targetBirthdateの方が、検索の起点となる日付であることがわかりやすいと思う。
+        LocalDate targetBirthdate = LocalDate.of(1968, 1, 1);
         //Dateがたくさんある！😭
         //java.sql.Dateかと思ったらコンパイルエラーになった
         // #1on1: java.util.Date, java.sql.Date とパッケージ違いの同名クラス (2026/05/29)
@@ -52,32 +61,41 @@ public class HandsOn03Test extends UnitContainerTestCase {
         //&検索なので、orはつけない
         //複数検索なのでListで取得
         ListResultBean<Member> memberList = memberBhv.selectList(cb -> {
+            // TODO done edo setupSelectはselect句のメソッドなので、一番上に定義したい by jflute (2026/05/29)
+            // これはDBFluteの提案的慣習で、別に必須ではないけど、みんながそうやれば可読性が良くなる。
+            //会員ステータスも取得する
+            //0601修正メモ:setupSelectは、select句のためのjoinなので、基本的には一番上に定義する
+            cb.setupSelect_MemberStatus();
             //セクション２でやったように曖昧検索
             cb.query().setMemberName_LikeSearch(prefix, op -> op.likePrefix());
             //生年月日が指定した日付よりも下であることを条件に加える
-            cb.query().setBirthdate_LessEqual(birthdate);
+            cb.query().setBirthdate_LessEqual(targetBirthdate);
             cb.query().addOrderBy_Birthdate_Asc();
-            // TODO edo setupSelectはselect句のメソッドなので、一番上に定義したい by jflute (2026/05/29)
-            // これはDBFluteの提案的慣習で、別に必須ではないけど、みんながそうやれば可読性が良くなる。
-            //会員ステータスも取得する
-            cb.setupSelect_MemberStatus();
         });
 
         // Assert
         assertFalse(memberList.isEmpty());
         for (Member member : memberList) {
-        	// TODO edo 複数 get...() している箇所を変数化してみましょう。変数名いい感じに by jflute (2026/05/29)
+        	// TODO done edo 複数 get...() している箇所を変数化してみましょう。変数名いい感じに by jflute (2026/05/29)
+            //0601修正メモ
+            //memberNameとmemberBirthdateという変数を用意してlogやアサートで使うようにした
         	// #1on1: assertを目視確認するために、log()を自由に出しても良い (2026/05/29)
-        	log(member.getMemberName(), member.getBirthdate());
+            String memberName = member.getMemberName();
+            LocalDate memberBirthdate = member.getBirthdate();
+        	log(memberName, memberBirthdate);
 
-            assertTrue(member.getMemberName().startsWith(prefix));
+            assertTrue(memberName.startsWith(prefix));
             //該当日も含めるので0以下であることをアサート
-            assertTrue(member.getBirthdate().compareTo(birthdate) <= 0);
-            // TODO edo getMemberStatus()はJavaDoc見るとnullを戻さないので意味のないアサートになってる by jflute (2026/05/29)
+            assertTrue(memberBirthdate.compareTo(targetBirthdate) <= 0);
+            // TODO done edo getMemberStatus()はJavaDoc見るとnullを戻さないので意味のないアサートになってる by jflute (2026/05/29)
+            //0601修正メモ
+            //assertNotNullは常に成功してしまうので、assertTrueの方に変えて、OptionalEntityがemptyじゃないことをチェックするようにした
+            // assertNotNull(member.getMemberStatus());
             // 「会員ステータスを取得したか？」の判定手段がnullではないということ。
             // OptionalEntity がemptyか？emptyじゃないか？で判定しないといけない。
             // #1on1: UnitTestのアサートを書く時の慣習、いっかい落としてアサート自体を確認しましょう (2026/05/29)
-			assertNotNull(member.getMemberStatus());
+			//assertNotNull(member.getMemberStatus());
+            assertTrue(member.getMemberStatus().isPresent());
         }
     }
 
@@ -116,9 +134,13 @@ public class HandsOn03Test extends UnitContainerTestCase {
         // Assert
         assertFalse(memberList.isEmpty());
         for (Member member : memberList) {
-        	// TODO edo assertになってない (null検査ではない) by jflute (2026/05/29)
-            assertNotNull(member.getMemberStatus());
-            assertNotNull(member.getMemberSecurityAsOne());
+        	// TODO done edo assertになってない (null検査ではない) by jflute (2026/05/29)
+            //0601修正メモ
+            //assertNotNullは常に成功してしまうので、assertTrueの方に変えて、OptionalEntityがemptyじゃないことをチェックするようにした
+            // assertNotNull(member.getMemberStatus());
+            // assertNotNull(member.getMemberSecurityAsOne());
+            assertTrue(member.getMemberStatus().isPresent());
+            assertTrue(member.getMemberSecurityAsOne().isPresent());
         }
     }
 
@@ -151,16 +173,85 @@ public class HandsOn03Test extends UnitContainerTestCase {
         //一回りマインドの質問が含まれているものを全件持ってきて、そこからフィルタリングして２を見つけたい
         assertFalse(memberList.isEmpty());
         for (Member member : memberList) {
-        	// TODO edo トレーニング: MEMBERをもっかい検索する必要はなく... by jflute (2026/05/29)
+        	// TODO done edo トレーニング: MEMBERをもっかい検索する必要はなく... by jflute (2026/05/29)
         	// 会員セキュリティだけを検索するようにしてみましょう。memberSecurityBhv を連れてきて...
+            //0601修正メモ
+            //memberBhvを使用するのではなく、memberSecurityBhvを使用して、会員セキュリティ情報だけを検索するようにした
+            //会員セキュリティ情報のリマインダ質問で2という文字が含まれている会員を検索
+            //behaviorは、memberBhrしか使えないと勘違いしていた
+            //色々あるんだなと勉強になった
             //会員セキュリティ情報のデータは不要なので、別途検索処理を入れる
-            Member memberWithSecurity = memberBhv.selectEntityWithDeletedCheck(cb -> {
+            // Member memberWithSecurity = memberBhv.selectEntityWithDeletedCheck(cb -> {
+            //     cb.query().setMemberId_Equal(member.getMemberId());
+            //     cb.setupSelect_MemberSecurityAsOne();
+            // });
+            MemberSecurity memberSecurity = memberSecurityBhv.selectEntityWithDeletedCheck(cb -> {
                 cb.query().setMemberId_Equal(member.getMemberId());
-                cb.setupSelect_MemberSecurityAsOne();
             });
-            //もう一回アサートしちゃう
-            String reminderQuestion = memberWithSecurity.getMemberSecurityAsOne().get().getReminderQuestion();
+            //別途処理をした上でアサートする
+            // String reminderQuestion = memberWithSecurity.getMemberSecurityAsOne().get().getReminderQuestion();
+            // assertTrue(reminderQuestion.contains(containsStr));
+            String reminderQuestion = memberSecurity.getReminderQuestion();
             assertTrue(reminderQuestion.contains(containsStr));
         }
+    }
+
+    /*
+    Goldストレッチ④
+    会員ステータスの表示順カラムで会員を並べて検索
+    - 会員ステータスの "表示順" カラムの昇順で並べる
+    - 会員ステータスのデータ自体は要らない
+    - その次には、会員の会員IDの降順で並べる
+    - 会員ステータスのデータが取れていないことをアサート
+    - 会員が会員ステータスごとに固まって並んでいることをアサート (順序は問わない)
+     */
+    public void test_orderByMemberStatusDisplayOrder() throws Exception {
+        // Arrange
+        //並び替えだけなので、特に定義は必要なさそう
+
+        // Act
+        //複数検索なのでListで取得
+        ListResultBean<Member> memberList = memberBhv.selectList(cb -> {
+            //会員ステータスの "表示順" カラムの昇順で並べる
+            //会員ステータスの "表示順" カラムの昇順で並べる
+            cb.query().queryMemberStatus().addOrderBy_DisplayOrder_Asc();
+            //会員の会員IDの降順で並べる
+            cb.query().addOrderBy_MemberId_Desc();
+        });
+
+        // Assert
+        //空確認
+
+        assertFalse(memberList.isEmpty());
+        //固まって並ぶ　＝　同じステータスが連続したブロックで現れる。一度途切れたら違うステータスになっている
+        //(例)　FML FML WDL WDL PRVの場合は、固まっているものをアサートしてると言える
+        //(例)　FML WDL FMLの場合は、固まっているものをアサートしてると言えない
+        //内容を細かく見なくても、同じものがブロックになっているかだけを見れば良い
+        //→ステータスが切り替わるところを回数としてカウント＝ステータス種類数となる
+
+        //出てきた会員ステータスの種類を記録
+        Set<String> memberStatusSet = new HashSet<>();
+        //ステータスの切り替わり回数を数えるための変数
+        int switchCount = 0;
+        //前の会員ステータスを覚えておくための変数
+        String previousStatusCode = null;
+        for (Member member : memberList){
+            //会員ステータスのデータが取れていないことをアサート
+            //取れてないことを確認したいので、assertFalseにする
+            assertFalse(member.getMemberStatus().isPresent());
+
+            //会員ステータスのコードを取得
+            String statusCode = member.getMemberStatusCode();
+            //出てきた会員ステータスの種類を記録
+            memberStatusSet.add(statusCode);
+            //ステータスが切り替わるところを回数としてカウント＝ステータス種類数となる
+            if (!statusCode.equals(previousStatusCode)) {
+                switchCount++;
+                previousStatusCode = statusCode;
+            }
+        }
+        // 会員が会員ステータスごとに固まって並んでいることをアサート
+        // 切り替わった数＝ステータスの種類数であることをアサートすれば、固まっていることの確認になる
+        assertEquals(memberStatusSet.size(), switchCount);
     }
 }
