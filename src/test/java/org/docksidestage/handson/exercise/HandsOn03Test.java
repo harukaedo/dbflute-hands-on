@@ -61,7 +61,7 @@ public class HandsOn03Test extends UnitContainerTestCase {
         //&検索なので、orはつけない
         //複数検索なのでListで取得
         ListResultBean<Member> memberList = memberBhv.selectList(cb -> {
-            // TODO done edo setupSelectはselect句のメソッドなので、一番上に定義したい by jflute (2026/05/29)
+            // done edo setupSelectはselect句のメソッドなので、一番上に定義したい by jflute (2026/05/29)
             // これはDBFluteの提案的慣習で、別に必須ではないけど、みんながそうやれば可読性が良くなる。
             //会員ステータスも取得する
             //0601修正メモ:setupSelectは、select句のためのjoinなので、基本的には一番上に定義する
@@ -76,7 +76,7 @@ public class HandsOn03Test extends UnitContainerTestCase {
         // Assert
         assertFalse(memberList.isEmpty());
         for (Member member : memberList) {
-        	// TODO done edo 複数 get...() している箇所を変数化してみましょう。変数名いい感じに by jflute (2026/05/29)
+        	// done edo 複数 get...() している箇所を変数化してみましょう。変数名いい感じに by jflute (2026/05/29)
             //0601修正メモ
             //memberNameとmemberBirthdateという変数を用意してlogやアサートで使うようにした
         	// #1on1: assertを目視確認するために、log()を自由に出しても良い (2026/05/29)
@@ -87,7 +87,7 @@ public class HandsOn03Test extends UnitContainerTestCase {
             assertTrue(memberName.startsWith(prefix));
             //該当日も含めるので0以下であることをアサート
             assertTrue(memberBirthdate.compareTo(targetBirthdate) <= 0);
-            // TODO done edo getMemberStatus()はJavaDoc見るとnullを戻さないので意味のないアサートになってる by jflute (2026/05/29)
+            // done edo getMemberStatus()はJavaDoc見るとnullを戻さないので意味のないアサートになってる by jflute (2026/05/29)
             //0601修正メモ
             //assertNotNullは常に成功してしまうので、assertTrueの方に変えて、OptionalEntityがemptyじゃないことをチェックするようにした
             // assertNotNull(member.getMemberStatus());
@@ -134,7 +134,7 @@ public class HandsOn03Test extends UnitContainerTestCase {
         // Assert
         assertFalse(memberList.isEmpty());
         for (Member member : memberList) {
-        	// TODO done edo assertになってない (null検査ではない) by jflute (2026/05/29)
+        	// done edo assertになってない (null検査ではない) by jflute (2026/05/29)
             //0601修正メモ
             //assertNotNullは常に成功してしまうので、assertTrueの方に変えて、OptionalEntityがemptyじゃないことをチェックするようにした
             // assertNotNull(member.getMemberStatus());
@@ -173,7 +173,7 @@ public class HandsOn03Test extends UnitContainerTestCase {
         //一回りマインドの質問が含まれているものを全件持ってきて、そこからフィルタリングして２を見つけたい
         assertFalse(memberList.isEmpty());
         for (Member member : memberList) {
-        	// TODO done edo トレーニング: MEMBERをもっかい検索する必要はなく... by jflute (2026/05/29)
+        	// done edo トレーニング: MEMBERをもっかい検索する必要はなく... by jflute (2026/05/29)
         	// 会員セキュリティだけを検索するようにしてみましょう。memberSecurityBhv を連れてきて...
             //0601修正メモ
             //memberBhvを使用するのではなく、memberSecurityBhvを使用して、会員セキュリティ情報だけを検索するようにした
@@ -214,6 +214,7 @@ public class HandsOn03Test extends UnitContainerTestCase {
         ListResultBean<Member> memberList = memberBhv.selectList(cb -> {
             //会員ステータスの "表示順" カラムの昇順で並べる
             //会員ステータスの "表示順" カラムの昇順で並べる
+        	//会員ステータスの "表示順" カラムの昇順で並べる
             cb.query().queryMemberStatus().addOrderBy_DisplayOrder_Asc();
             //会員の会員IDの降順で並べる
             cb.query().addOrderBy_MemberId_Desc();
@@ -242,16 +243,32 @@ public class HandsOn03Test extends UnitContainerTestCase {
 
             //会員ステータスのコードを取得
             String statusCode = member.getMemberStatusCode();
+            // TODO edo previousStatusCodeの更新と並べて、事務手続きは寄せちゃった方が by jflute (2026/06/05)
             //出てきた会員ステータスの種類を記録
             memberStatusSet.add(statusCode);
             //ステータスが切り替わるところを回数としてカウント＝ステータス種類数となる
             if (!statusCode.equals(previousStatusCode)) {
                 switchCount++;
+                // TODO edo previousのニュアンスを1ループ前という解釈にして、ifの外に出した方が読み手は楽 by jflute (2026/06/05)
                 previousStatusCode = statusCode;
             }
         }
         // 会員が会員ステータスごとに固まって並んでいることをアサート
         // 切り替わった数＝ステータスの種類数であることをアサートすれば、固まっていることの確認になる
         assertEquals(memberStatusSet.size(), switchCount);
+        
+        // #1on1: 別の考え方 (2026/06/05)
+        // 切り替わるタイミングで、今まですでに登場してきたステータスが新しく登場したらOUT
+        // A A B B C C
+        // A A B B A C C
+        /*
+if (!statusCode.equals(previousStatusCode)) {
+	assertFalse(memberStatusSet.contains(statusCode));
+         */
+        // 特徴の差はある。早いチェック、変数が少なくなる。
+        // 逆に、どのくらい固まってないのか？を知るには、えどさんのやり方じゃないと。
+        // プログラミング的発想か？データ分析的発想か？
+        //
+        // ぼくらは例外です。
     }
 }
